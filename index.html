@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SilasDV's Video Game Ranking</title>
+    <title>Ranking | SilasDV's Video Game Ranking</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <a href="#main-content">Skip to main content</a>
 
     <header>
         <p><a href="index.html">SilasDV's Video Game Ranking</a></p>
-
         <nav>
             <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ranking.html" aria-current="page">Ranking</a></li>
                 <li><a href="statistics.html">Statistics</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -23,90 +23,16 @@
 
     <main id="main-content" tabindex="-1">
         <section>
-            <h1>Games shape better stories.</h1>
-
-            <p>
-                My personal ranking of the games
-                that mean the most to me.
-            </p>
-
-            <p><a href="ranking.html">Explore the ranking</a></p>
+            <h1>All Games</h1>
+            <p>Here you will find my game ranking, sorted by my personal preference.</p>
+            <p>All playtimes are estimates based on my own experience.</p>
         </section>
 
         <section>
-            <h2>My Top 3</h2>
-
-            <ol>
-                <li>
-                    <h3>Celeste</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/a7e862a941c24a7b2198b708a9f3f426.png"
-                            alt="Cover artwork for Celeste"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: PC</p>
-                    <p>Playtime: about 400 hours</p>
-                    <p>Rating: 10/10</p>
-                </li>
-
-                <li>
-                    <h3>Hollow Knight: Silksong</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/352b19056ce934568b956d68cbcde3b5.png"
-                            alt="Cover artwork for Hollow Knight: Silksong"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: PC</p>
-                    <p>Playtime: about 100 hours</p>
-                    <p>Rating: 10/10</p>
-                </li>
-
-                <li>
-                    <h3>Custom Robo Arena</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/5d06c54c3d86f8eeffd5654da9bf5b02.png"
-                            alt="Cover artwork for Custom Robo Arena"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: Nintendo DS</p>
-                    <p>Playtime: about 45 hours</p>
-                    <p>Rating: 9.9/10</p>
-                </li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Why this website?</h2>
-
-            <p>
-                This is a collection of my favourite video games.
-                The ranking is based on my own experiences, memories
-                and the fun each game gave me.
-            </p>
-
-            <p>
-                I want to share what makes these games special to me.
-                Maybe you will discover a game you would like to try.
-            </p>
-
-            <p>
-                <a href="about.html">Learn more about the ranking</a>
-            </p>
+            <h2>My Ranking</h2>
+            <p id="data-status" role="status"></p>
+            <noscript><p>Please enable JavaScript to view the ranking.</p></noscript>
+            <ol id="ranking-list"></ol>
         </section>
     </main>
 

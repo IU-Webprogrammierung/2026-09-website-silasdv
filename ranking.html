@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking | SilasDV's Video Game Ranking</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <a href="#main-content">Skip to main content</a>
 
     <header>
         <p><a href="index.html">SilasDV's Video Game Ranking</a></p>
-
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -24,99 +24,15 @@
     <main id="main-content" tabindex="-1">
         <section>
             <h1>All Games</h1>
-
-            <p>
-                Here you will find my game ranking,
-                sorted by my personal preference.
-            </p>
-
-            <p>
-                The first three entries are available below.
-                More games will be added as I build this website.
-            </p>
+            <p>Here you will find my game ranking, sorted by my personal preference.</p>
+            <p>All playtimes are estimates based on my own experience.</p>
         </section>
 
         <section>
             <h2>My Ranking</h2>
-
-            <ol>
-                <li>
-                    <h3>Celeste</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/a7e862a941c24a7b2198b708a9f3f426.png"
-                            alt="Cover artwork for Celeste"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: PC</p>
-                    <p>Playtime: about 400 hours</p>
-                    <p>Rating: 10/10</p>
-                    <p>Release year: 2018</p>
-                    <p>Genre: Platform</p>
-
-                    <p>
-                        A breathtaking platformer that explores the topic
-                        of depression. With its mods and large modding
-                        community, this game is a timeless joy.
-                    </p>
-                </li>
-
-                <li>
-                    <h3>Hollow Knight: Silksong</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/352b19056ce934568b956d68cbcde3b5.png"
-                            alt="Cover artwork for Hollow Knight: Silksong"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: PC</p>
-                    <p>Playtime: about 100 hours</p>
-                    <p>Rating: 10/10</p>
-                    <p>Release year: 2025</p>
-                    <p>Genre: Platform / Adventure</p>
-
-                    <p>
-                        If Hollow Knight left you wanting more,
-                        Silksong will not disappoint. A sequel that takes
-                        the best parts of the first game and turns them
-                        up a notch. Probably the best 20 euros
-                        I have ever spent on a game.
-                    </p>
-                </li>
-
-                <li>
-                    <h3>Custom Robo Arena</h3>
-
-                    <figure>
-                        <img
-                            src="https://cdn2.steamgriddb.com/grid/5d06c54c3d86f8eeffd5654da9bf5b02.png"
-                            alt="Cover artwork for Custom Robo Arena"
-                            width="200"
-                            height="300"
-                        >
-                    </figure>
-
-                    <p>Platform: Nintendo DS</p>
-                    <p>Playtime: about 45 hours</p>
-                    <p>Rating: 9.9/10</p>
-                    <p>Release year: 2006</p>
-                    <p>Genre: Fighting / RPG</p>
-
-                    <p>
-                        Robot battles? Robot battles!
-                        A game that sadly never received a sequel.
-                        Probably the best Nintendo DS game ever made.
-                    </p>
-                </li>
-            </ol>
+            <p id="data-status" role="status"></p>
+            <noscript><p>Please enable JavaScript to view the ranking.</p></noscript>
+            <ol id="ranking-list"></ol>
         </section>
     </main>
 
