@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking | SilasDV's Video Game Ranking</title>
+    <title>SilasDV's Video Game Ranking</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -13,8 +14,8 @@
         <p><a href="index.html">SilasDV's Video Game Ranking</a></p>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ranking.html" aria-current="page">Ranking</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
                 <li><a href="statistics.html">Statistics</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -23,16 +24,30 @@
 
     <main id="main-content" tabindex="-1">
         <section>
-            <h1>All Games</h1>
-            <p>Here you will find my game ranking, sorted by my personal preference.</p>
-            <p>All playtimes are estimates based on my own experience.</p>
+            <h1>Games shape better stories.</h1>
+            <p>My personal ranking of the games that mean the most to me.</p>
+            <p><a href="ranking.html">Explore the ranking</a></p>
         </section>
 
         <section>
-            <h2>My Ranking</h2>
+            <h2>My Top 3</h2>
             <p id="data-status" role="status"></p>
-            <noscript><p>Please enable JavaScript to view the ranking.</p></noscript>
-            <ol id="ranking-list"></ol>
+            <noscript><p>Please enable JavaScript to view the games.</p></noscript>
+            <ol id="top-games"></ol>
+        </section>
+
+        <section>
+            <h2>Why this website?</h2>
+            <p>
+                This is a collection of my favourite video games.
+                The ranking is based on my own experiences, memories
+                and the fun each game gave me.
+            </p>
+            <p>
+                I want to share what makes these games special to me.
+                Maybe you will discover a game you would like to try.
+            </p>
+            <p><a href="about.html">Learn more about the ranking</a></p>
         </section>
     </main>
 
