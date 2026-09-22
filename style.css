@@ -33,3 +33,24 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.site-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.site-name img {
+    width: 50px;
+    flex-shrink: 0;
+}
+
+.site-name:hover,
+.site-name:focus-visible {
+    text-decoration: underline;
+}
