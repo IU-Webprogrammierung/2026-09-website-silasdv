@@ -64,6 +64,10 @@ img {
     flex-shrink: 0;
 }
 
+.site-name span {
+    text-wrap: balance;
+}
+
 .site-name:hover,
 .site-name:focus-visible {
     text-decoration: underline;
@@ -120,6 +124,57 @@ nav a:focus-visible,
     outline-offset: 3px;
 }
 
+.hero {
+    padding: 40px 24px;
+    background-color: #e6e6e6;
+}
+
+.hero h1 {
+    max-width: 650px;
+    margin: 0 0 20px;
+    font-size: 36px;
+    text-wrap: balance;
+}
+
+.hero p {
+    max-width: 540px;
+    margin: 0 0 24px;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    color: #ffffff;
+    background-color: #222222;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #444444;
+}
+
+.button:focus-visible {
+    outline: 2px solid #222222;
+    outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 64px 40px;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+}
+
 @media (min-width: 1024px) {
     header {
         flex-wrap: nowrap;
@@ -132,5 +187,9 @@ nav a:focus-visible,
 
     nav ul {
         flex-direction: row;
+    }
+
+    .hero h1 {
+        font-size: 64px;
     }
 }
