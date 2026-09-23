@@ -54,3 +54,36 @@ img {
 .site-name:focus-visible {
     text-decoration: underline;
 }
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    padding: 10px 16px;
+    color: #222222;
+    background-color: #e6e6e6;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #d4d4d4;
+}
+
+nav a[aria-current="page"] {
+    color: #ffffff;
+    background-color: #222222;
+    font-weight: bold;
+}
+
+nav a:focus-visible {
+    outline: 2px solid #222222;
+    outline-offset: 3px;
+}
