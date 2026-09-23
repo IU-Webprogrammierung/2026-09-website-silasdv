@@ -161,7 +161,71 @@ nav a:focus-visible,
     outline-offset: 3px;
 }
 
+#top-games {
+    display: grid;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#top-games > li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #bbbbbb;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+#top-games > li::before {
+    content: "#" attr(value);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 10px;
+    color: #ffffff;
+    background-color: #222222;
+    font-weight: bold;
+}
+
+#top-games figure {
+    order: -1;
+    margin: 0 0 20px;
+}
+
+#top-games img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#top-games figure p {
+    margin: 48px 0 0;
+    text-align: center;
+}
+
+#top-games h3 {
+    min-height: 2.4em;
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+#top-games p {
+    margin: 6px 0;
+    color: #555555;
+}
+
 @media (min-width: 768px) {
+    #top-games {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .hero {
         padding: 64px 40px;
     }
@@ -176,6 +240,10 @@ nav a:focus-visible,
 }
 
 @media (min-width: 1024px) {
+    #top-games {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     header {
         flex-wrap: nowrap;
         justify-content: space-between;
