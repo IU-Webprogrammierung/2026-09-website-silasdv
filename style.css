@@ -11,6 +11,24 @@ body {
     background-color: #f5f5f5;
 }
 
+body > a[href="#main-content"] {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    padding: 10px 16px;
+    color: #ffffff;
+    background-color: #222222;
+    border-radius: 4px;
+    transform: translateY(-150%);
+}
+
+body > a[href="#main-content"]:focus {
+    transform: translateY(20px);
+    outline: 2px solid #222222;
+    outline-offset: 3px;
+}
+
 header,
 main,
 footer {
@@ -140,6 +158,27 @@ nav a:focus-visible,
     max-width: 540px;
     margin: 0 0 24px;
     font-size: 18px;
+}
+
+.home-about {
+    padding: 32px 24px;
+    background-color: #e6e6e6;
+}
+
+.home-about h2 {
+    margin: 0 0 16px;
+    font-size: 28px;
+}
+
+.home-about p {
+    max-width: 760px;
+    margin: 0 0 16px;
+}
+
+.home-about .button {
+    max-width: 100%;
+    margin-top: 8px;
+    text-align: center;
 }
 
 .button {
@@ -395,6 +434,18 @@ nav a:focus-visible,
 }
 
 @media (min-width: 768px) {
+    .home-about {
+        padding: 40px;
+    }
+
+    .home-about h2 {
+        font-size: 32px;
+    }
+
+    .home-about p {
+        font-size: 18px;
+    }
+
     .statistics-charts {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
