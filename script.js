@@ -136,9 +136,109 @@ function countCategories(games, key) {
     return [...counts.entries()].sort((a, b) => b[1] - a[1]);
 }
 
+// Genres mit nur einem Spiel im Diagramm unter "Other" sammeln.
+function groupSingleGenres(genres) {
+    const groupedGenres = [];
+    let otherCount = 0;
+
+    for (const [name, count] of genres) {
+        if (count === 1 || name === "Other") {
+            otherCount += count;
+        } else {
+            groupedGenres.push([name, count]);
+        }
+    }
+
+    if (otherCount > 0) {
+        groupedGenres.push(["Other", otherCount]);
+    }
+    return groupedGenres;
+}
+
+function showCategoryChart(list, categories, totalGames, showPercentages) {
+    list.replaceChildren();
+    const largestCount = Math.max(...categories.map(category => category[1]));
+
+    for (const [name, count] of categories) {
+        const item = document.createElement("li");
+        let text = name + ": " + count + (count === 1 ? " game" : " games");
+
+        if (showPercentages) {
+            const percentage = (count / totalGames * 100).toFixed(1);
+            text += " (" + percentage + "%)";
+        }
+
+        const label = makeText("span", text);
+        label.className = "chart-label";
+
+        const bar = document.createElement("span");
+        bar.className = "chart-bar";
+        // Die häufigste Kategorie erhält den längsten Balken.
+        bar.style.width = (count / largestCount * 100) + "%";
+        bar.setAttribute("aria-hidden", "true");
+
+        item.appendChild(label);
+        item.appendChild(bar);
+        list.appendChild(item);
+    }
+}
+
+function showGameChartRow(item, game, position, value, largestValue) {
+    const title = item.querySelector("h3");
+    const valueLabel = item.querySelector(".chart-value");
+
+    const rank = makeText("span", "#" + position);
+    rank.className = "chart-rank";
+
+    const cover = document.createElement("div");
+    cover.className = "chart-cover";
+    if (game && game.cover_url) {
+        const image = document.createElement("img");
+        image.src = game.cover_url;
+        image.alt = "";
+        image.width = 56;
+        image.height = 84;
+        image.loading = "lazy";
+        image.addEventListener("error", () => {
+            cover.replaceChildren(makeText("span", "No cover"));
+        }, { once: true });
+        cover.appendChild(image);
+    } else {
+        cover.appendChild(makeText("span", "No cover"));
+    }
+
+    const details = document.createElement("div");
+    details.className = "chart-details";
+    const bar = document.createElement("span");
+    bar.className = "chart-bar";
+    bar.style.width = (largestValue > 0 ? value / largestValue * 100 : 0) + "%";
+    bar.setAttribute("aria-hidden", "true");
+
+    details.appendChild(title);
+    details.appendChild(valueLabel);
+    details.appendChild(bar);
+    item.value = position;
+    item.classList.add("game-chart-row");
+    item.replaceChildren(rank, cover, details);
+}
+
+function showSalesChart(games) {
+    const list = document.getElementById("sales-list");
+    if (!list) return;
+
+    const items = [...list.children];
+    const largestSales = Math.max(...items.map(item => Number(item.dataset.sales)));
+
+    items.forEach((item, index) => {
+        const game = games.find(game => game.title === item.dataset.title &&
+            game.platform === item.dataset.platform);
+        showGameChartRow(item, game, index + 1, Number(item.dataset.sales), largestSales);
+    });
+}
+
 function showStatistics(games) {
     const platforms = countCategories(games, "platform");
-    const genres = countCategories(games, "genre");
+    const genres = groupSingleGenres(countCategories(games, "genre"));
     let totalHours = 0;
     let totalRating = 0;
 
@@ -154,22 +254,13 @@ function showStatistics(games) {
         (totalRating / games.length).toFixed(1);
     document.getElementById("platform-count").textContent = platforms.length;
 
-    const platformList = document.getElementById("platform-list");
-    for (const [name, count] of platforms) {
-        platformList.appendChild(makeText("li", name + ": " + count +
-            (count === 1 ? " game" : " games")));
-    }
-
-    const genreList = document.getElementById("genre-list");
-    for (const [name, count] of genres) {
-        const percentage = (count / games.length * 100).toFixed(1);
-        genreList.appendChild(makeText("li", name + ": " + count +
-            (count === 1 ? " game" : " games") + " (" + percentage + "%)"));
-    }
+    showCategoryChart(document.getElementById("platform-list"), platforms, games.length, false);
+    showCategoryChart(document.getElementById("genre-list"), genres, games.length, true);
 
     // Gleiche Spielzeiten teilen sich einen Rang, auch auf Platz 5.
     const byPlaytime = [...games].sort((a, b) => b.playtime_hours - a.playtime_hours);
     const playtimeList = document.getElementById("playtime-list");
+    playtimeList.replaceChildren();
     let position = 1;
 
     for (let i = 0; i < byPlaytime.length; i++) {
@@ -178,11 +269,17 @@ function showStatistics(games) {
             position = i + 1;
         }
         if (position > 5) break;
-        const item = makeText("li", game.title + ": " +
+        const item = document.createElement("li");
+        item.appendChild(makeText("h3", game.title));
+        const valueLabel = makeText("p", "About " +
             game.playtime_hours.toLocaleString("en-US") + " hours");
-        item.value = position;
+        valueLabel.className = "chart-value";
+        item.appendChild(valueLabel);
+        showGameChartRow(item, game, position, game.playtime_hours, byPlaytime[0].playtime_hours);
         playtimeList.appendChild(item);
     }
+    showSalesChart(games);
+    document.getElementById("playtime-chart").hidden = false;
     document.getElementById("statistics-data").hidden = false;
 }
 
@@ -204,6 +301,7 @@ async function loadGames() {
         status.textContent = games.length + " games in my collection.";
     } catch (error) {
         status.textContent = "The game data could not be loaded. Please try again later.";
+        showSalesChart([]);
         console.error(error);
     }
 }

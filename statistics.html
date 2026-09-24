@@ -44,41 +44,72 @@
         <div id="statistics-data" hidden>
             <section>
                 <h2>Overview</h2>
-                <p>Games: <span id="game-count"></span></p>
-                <p>Total playtime: about <span id="total-playtime"></span> hours</p>
-                <p>Average rating: <span id="average-rating"></span>/10</p>
-                <p>Platforms: <span id="platform-count"></span></p>
+                <div class="stats-overview">
+                    <p class="stat-card">
+                        <span class="stat-value" id="game-count"></span>
+                        Games
+                    </p>
+                    <p class="stat-card">
+                        <span class="stat-value"><span id="total-playtime"></span> h</span>
+                        Estimated playtime
+                    </p>
+                    <p class="stat-card">
+                        <span class="stat-value"><span id="average-rating"></span>/10</span>
+                        Average rating
+                    </p>
+                    <p class="stat-card">
+                        <span class="stat-value" id="platform-count"></span>
+                        Platforms
+                    </p>
+                </div>
             </section>
 
-            <section>
-                <h2>Games by Platform</h2>
-                <ul id="platform-list"></ul>
-            </section>
+            <div class="statistics-charts">
+                <section class="chart-section">
+                    <h2>Games by Platform</h2>
+                    <ul id="platform-list" class="chart-list" role="list"></ul>
+                </section>
 
-            <section>
-                <h2>Games by Genre</h2>
-                <ul id="genre-list"></ul>
-            </section>
-
-            <section>
-                <h2>Top 5 Playtime</h2>
-                <ol id="playtime-list"></ol>
-            </section>
+                <section class="chart-section">
+                    <h2>Games by Genre</h2>
+                    <ul id="genre-list" class="chart-list" role="list"></ul>
+                </section>
+            </div>
         </div>
 
-        <section>
-            <h2>Top 5 Game Sales</h2>
-            <ol>
-                <li>Overwatch: 60 million purchased copies</li>
-                <li>Cyberpunk 2077: 40 million copies sold</li>
-                <li>Mario Kart Wii: 37.38 million copies sold</li>
-                <li>Tetris for Game Boy: over 35 million copies sold</li>
-                <li>
-                    The Legend of Zelda: Breath of the Wild
-                    for Nintendo Switch: 34.06 million copies sold
-                </li>
-            </ol>
-        </section>
+        <div class="statistics-charts">
+            <section id="playtime-chart" class="chart-section" hidden>
+                <h2>Top 5 Playtime</h2>
+                <ol id="playtime-list" class="game-chart" role="list"></ol>
+            </section>
+
+            <section class="chart-section">
+                <h2>Top 5 Game Sales</h2>
+                <ol id="sales-list" class="game-chart" role="list">
+                    <li data-title="Overwatch" data-platform="PC" data-sales="60">
+                        <h3>Overwatch</h3>
+                        <p class="chart-value">60 million purchased copies</p>
+                    </li>
+                    <li data-title="Cyberpunk 2077" data-platform="PC" data-sales="40">
+                        <h3>Cyberpunk 2077</h3>
+                        <p class="chart-value">40 million copies sold</p>
+                    </li>
+                    <li data-title="Mario Kart Wii" data-platform="Wii" data-sales="37.38">
+                        <h3>Mario Kart Wii</h3>
+                        <p class="chart-value">37.38 million copies sold</p>
+                    </li>
+                    <li data-title="Tetris" data-platform="Game Boy" data-sales="35">
+                        <h3>Tetris for Game Boy</h3>
+                        <p class="chart-value">Over 35 million copies sold</p>
+                    </li>
+                    <li data-title="The Legend of Zelda: Breath of the Wild"
+                        data-platform="Nintendo Switch" data-sales="34.06">
+                        <h3>The Legend of Zelda: Breath of the Wild for Nintendo Switch</h3>
+                        <p class="chart-value">34.06 million copies sold</p>
+                    </li>
+                </ol>
+            </section>
+        </div>
     </main>
 
     <footer>
