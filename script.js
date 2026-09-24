@@ -187,7 +187,9 @@ function showGames(list, games, details) {
             item.appendChild(makeText("p", "Release year: " + game.release_year));
             item.appendChild(makeText("p", "Genre: " + game.genre));
             if (Object.hasOwn(reviews, game.title)) {
-                item.appendChild(makeText("p", reviews[game.title]));
+                const review = makeText("p", reviews[game.title]);
+                review.className = "game-review";
+                item.appendChild(review);
             }
         }
         list.appendChild(item);
