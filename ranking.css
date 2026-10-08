@@ -1,0 +1,26 @@
+/* Suchfeld für die Ranking-Seite. */
+.ranking-search {
+    margin-bottom: 20px;
+
+    & label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    & input {
+        width: 100%;
+        max-width: 480px;
+        padding: 10px 12px;
+        font: inherit;
+        color: #222222;
+        background-color: #ffffff;
+        border: 1px solid #777777;
+        border-radius: 4px;
+
+        &:focus-visible {
+            outline: 2px solid #222222;
+            outline-offset: 3px;
+        }
+    }
+}

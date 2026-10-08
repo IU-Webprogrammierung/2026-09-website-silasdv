@@ -353,6 +353,36 @@ function showStatistics(games) {
     document.getElementById("statistics-data").hidden = false;
 }
 
+// Spiele nach ihrem Titel filtern. Die ursprünglichen Rangnummern bleiben erhalten.
+function setupRankingSearch(list, games, status) {
+    const form = document.querySelector(".ranking-search");
+    const searchInput = document.getElementById("game-search");
+    if (!form || !searchInput) {
+        showGames(list, games, true);
+        return;
+    }
+
+    function updateResults() {
+        const searchText = searchInput.value.trim().toLowerCase();
+        const matches = games.filter(game =>
+            game.title.toLowerCase().includes(searchText)
+        );
+
+        showGames(list, matches, true);
+        if (matches.length === 0) {
+            status.textContent = "No games found. Try a different title.";
+        } else {
+            status.textContent = matches.length + " of " + games.length + " games shown.";
+        }
+    }
+
+    // Enter soll die Seite nicht neu laden.
+    form.addEventListener("submit", event => event.preventDefault());
+    searchInput.addEventListener("input", updateResults);
+    updateResults();
+    form.hidden = false;
+}
+
 async function loadGames() {
     const status = document.getElementById("data-status");
     status.textContent = "Loading game data...";
@@ -361,14 +391,13 @@ async function loadGames() {
         const response = await fetch("data/games.csv");
         if (!response.ok) throw new Error("CSV could not be loaded.");
         const games = getGames(await response.text());
+        status.textContent = games.length + " games in my collection.";
 
         const topGames = document.getElementById("top-games");
         const ranking = document.getElementById("ranking-list");
         if (topGames) showGames(topGames, games.slice(0, 3), false);
-        if (ranking) showGames(ranking, games, true);
+        if (ranking) setupRankingSearch(ranking, games, status);
         if (document.getElementById("statistics-data")) showStatistics(games);
-
-        status.textContent = games.length + " games in my collection.";
     } catch (error) {
         status.textContent = "The game data could not be loaded. Please try again later.";
         showSalesChart([]);

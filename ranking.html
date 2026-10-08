@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking | SilasDV's Video Game Ranking</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ranking.css">
     <script src="navigation.js" defer></script>
     <script src="loader.js" defer></script>
     <script src="script.js" defer></script>
@@ -27,6 +28,13 @@
 
         <section>
             <h2>My Ranking</h2>
+
+            <form class="ranking-search" role="search" hidden>
+                <label for="game-search">Search games</label>
+                <input type="search" id="game-search" name="title"
+                       placeholder="Enter a game title" aria-controls="ranking-list">
+            </form>
+
             <p id="data-status" role="status"></p>
             <noscript><p>Please enable JavaScript to view the ranking.</p></noscript>
             <ol id="ranking-list"></ol>
