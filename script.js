@@ -353,24 +353,47 @@ function showStatistics(games) {
     document.getElementById("statistics-data").hidden = false;
 }
 
-// Spiele nach ihrem Titel filtern. Die ursprünglichen Rangnummern bleiben erhalten.
+// Titel, Plattform und Genre gemeinsam filtern. Die Rangnummern bleiben erhalten.
 function setupRankingSearch(list, games, status) {
     const form = document.querySelector(".ranking-search");
     const searchInput = document.getElementById("game-search");
-    if (!form || !searchInput) {
+    const platformFilter = document.getElementById("platform-filter");
+    const genreFilter = document.getElementById("genre-filter");
+    if (!form || !searchInput || !platformFilter || !genreFilter) {
         showGames(list, games, true);
         return;
     }
 
+    // Jede Plattform und jedes Genre nur einmal als Auswahl anbieten.
+    function addOptions(select, key) {
+        const values = [...new Set(games.map(game => game[key]))];
+        values.sort((a, b) => a.localeCompare(b, "en"));
+
+        for (const value of values) {
+            const option = makeText("option", value);
+            option.value = value;
+            select.appendChild(option);
+        }
+    }
+
+    addOptions(platformFilter, "platform");
+    addOptions(genreFilter, "genre");
+
     function updateResults() {
         const searchText = searchInput.value.trim().toLowerCase();
-        const matches = games.filter(game =>
-            game.title.toLowerCase().includes(searchText)
-        );
+        const matches = games.filter(game => {
+            const titleMatches = game.title.toLowerCase().includes(searchText);
+            const platformMatches = platformFilter.value === "" ||
+                game.platform === platformFilter.value;
+            const genreMatches = genreFilter.value === "" ||
+                game.genre === genreFilter.value;
+
+            return titleMatches && platformMatches && genreMatches;
+        });
 
         showGames(list, matches, true);
         if (matches.length === 0) {
-            status.textContent = "No games found. Try a different title.";
+            status.textContent = "No games found. Try a different search or filter.";
         } else {
             status.textContent = matches.length + " of " + games.length + " games shown.";
         }
@@ -379,6 +402,8 @@ function setupRankingSearch(list, games, status) {
     // Enter soll die Seite nicht neu laden.
     form.addEventListener("submit", event => event.preventDefault());
     searchInput.addEventListener("input", updateResults);
+    platformFilter.addEventListener("change", updateResults);
+    genreFilter.addEventListener("change", updateResults);
     updateResults();
     form.hidden = false;
 }

@@ -33,6 +33,22 @@
                 <label for="game-search">Search games</label>
                 <input type="search" id="game-search" name="title"
                        placeholder="Enter a game title" aria-controls="ranking-list">
+
+                <div class="ranking-filters">
+                    <div>
+                        <label for="platform-filter">Platform</label>
+                        <select id="platform-filter" name="platform" aria-controls="ranking-list">
+                            <option value="">All platforms</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="genre-filter">Genre</label>
+                        <select id="genre-filter" name="genre" aria-controls="ranking-list">
+                            <option value="">All genres</option>
+                        </select>
+                    </div>
+                </div>
             </form>
 
             <p id="data-status" role="status"></p>
