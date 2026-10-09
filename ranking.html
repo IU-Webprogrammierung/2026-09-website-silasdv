@@ -22,7 +22,7 @@
     <main id="main-content" tabindex="-1">
         <section>
             <h1>All Games</h1>
-            <p>Here you will find my game ranking, sorted by my personal preference.</p>
+            <p>Here you will find my personal game ranking. Use the search, filters and sorting to explore the list.</p>
             <p>All playtimes are estimates based on my own experience.</p>
         </section>
 
@@ -35,20 +35,62 @@
                        placeholder="Enter a game title" aria-controls="ranking-list">
 
                 <div class="ranking-filters">
-                    <div>
-                        <label for="platform-filter">Platform</label>
-                        <select id="platform-filter" name="platform" aria-controls="ranking-list">
+                    <div class="ranking-control">
+                        <label for="platform-filter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true" focusable="false">
+                                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                                <path d="M12 16v4M8 20h8"></path>
+                            </svg>
+                            <span class="control-label">Platform</span>
+                        </label>
+                        <select id="platform-filter" name="platform" title="Platform"
+                                aria-controls="ranking-list">
                             <option value="">All platforms</option>
                         </select>
                     </div>
 
-                    <div>
-                        <label for="genre-filter">Genre</label>
-                        <select id="genre-filter" name="genre" aria-controls="ranking-list">
+                    <div class="ranking-control">
+                        <label for="genre-filter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true" focusable="false">
+                                <path d="m21 12-9 9-9-9V3h9Z"></path>
+                                <circle cx="7.5" cy="7.5" r="1"></circle>
+                            </svg>
+                            <span class="control-label">Genre</span>
+                        </label>
+                        <select id="genre-filter" name="genre" title="Genre"
+                                aria-controls="ranking-list">
                             <option value="">All genres</option>
                         </select>
                     </div>
+
+                    <div class="ranking-control">
+                        <label for="game-sort">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true" focusable="false">
+                                <path d="M8 4v16m-4-4 4 4 4-4M16 20V4m-4 4 4-4 4 4"></path>
+                            </svg>
+                            <span class="control-label">Sort by</span>
+                        </label>
+                        <select id="game-sort" name="sort" title="Sort by"
+                                aria-controls="ranking-list">
+                            <option value="rank:asc">Rank: best first</option>
+                            <option value="rank:desc">Rank: reversed</option>
+                            <option value="playtime_hours:desc">Playtime: longest first</option>
+                            <option value="playtime_hours:asc">Playtime: shortest first</option>
+                            <option value="release_year:desc">Year: newest first</option>
+                            <option value="release_year:asc">Year: oldest first</option>
+                            <option value="title:asc">Title: A–Z</option>
+                            <option value="title:desc">Title: Z–A</option>
+                        </select>
+                    </div>
                 </div>
+
+                <p id="selection-summary" class="selection-summary"></p>
             </form>
 
             <p id="data-status" role="status"></p>

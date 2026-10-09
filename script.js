@@ -64,7 +64,7 @@ const reviews = {
     "Dead Cells": "The combat feels fantastic, and every failed run still teaches me something useful for the next attempt.",
     "Yoshi's Island": "Soft colours, creative transformations and brilliant level design make this one of the most charming Mario adventures.",
     "Mario Kart 64": "The simple tracks, memorable battle arenas and chaotic multiplayer are responsible for a lot of great memories.",
-    "Zeus Pinball": "A small pinball game with a surprisingly satisfying rhythm that makes chasing a higher score feel worthwhile.",
+    "Pinball Pulse: The Ancients Beckon": "A small pinball game with a surprisingly satisfying rhythm that makes chasing a higher score feel worthwhile.",
     "The Legend of Zelda: Majora's Mask": "The strange world, repeating days and emotional side stories create an adventure that feels completely unique.",
     "Stronghold": "Building a castle, managing an economy and defending against attacks makes every map feel like its own little story.",
     "Kirby": "Simple controls, cheerful worlds and copy abilities make this an easy game to enjoy whenever I want something relaxing.",
@@ -166,7 +166,7 @@ function showGames(list, games, details) {
         if (game.cover_url) {
             const image = document.createElement("img");
             image.src = game.cover_url;
-            image.alt = "Cover artwork for " + game.title;
+            image.alt = "Artwork for " + game.title;
             image.width = 200;
             image.height = 300;
             image.loading = "lazy";
@@ -353,13 +353,15 @@ function showStatistics(games) {
     document.getElementById("statistics-data").hidden = false;
 }
 
-// Titel, Plattform und Genre gemeinsam filtern. Die Rangnummern bleiben erhalten.
+// Spiele filtern und sortieren. Die persönlichen Rangnummern bleiben erhalten.
 function setupRankingSearch(list, games, status) {
     const form = document.querySelector(".ranking-search");
     const searchInput = document.getElementById("game-search");
     const platformFilter = document.getElementById("platform-filter");
     const genreFilter = document.getElementById("genre-filter");
-    if (!form || !searchInput || !platformFilter || !genreFilter) {
+    const sortSelect = document.getElementById("game-sort");
+    const selectionSummary = document.getElementById("selection-summary");
+    if (!form || !searchInput || !platformFilter || !genreFilter || !sortSelect) {
         showGames(list, games, true);
         return;
     }
@@ -391,6 +393,33 @@ function setupRankingSearch(list, games, status) {
             return titleMatches && platformMatches && genreMatches;
         });
 
+        // Nur die Treffer sortieren, damit die ursprüngliche Spieleliste erhalten bleibt.
+        const [sortKey, sortDirection] = sortSelect.value.split(":");
+        matches.sort((a, b) => {
+            let difference;
+            if (sortKey === "title") {
+                difference = a.title.localeCompare(b.title, "en", { sensitivity: "base" });
+            } else {
+                difference = a[sortKey] - b[sortKey];
+            }
+
+            if (sortDirection === "desc") difference = -difference;
+
+            // Bei gleichen Werten entscheidet die persönliche Rangfolge.
+            return difference || a.rank - b.rank;
+        });
+
+        // Die Auswahl unter den Symbolen anzeigen und aktive Filter hervorheben.
+        const selectedTexts = [];
+        for (const select of [platformFilter, genreFilter, sortSelect]) {
+            const selectedText = select.selectedOptions[0].textContent;
+            selectedTexts.push(selectedText);
+            select.title = select.labels[0].textContent.trim() + ": " + selectedText;
+            select.parentElement.classList.toggle("is-active",
+                select.value !== select.options[0].value);
+        }
+        if (selectionSummary) selectionSummary.textContent = selectedTexts.join(" · ");
+
         showGames(list, matches, true);
         if (matches.length === 0) {
             status.textContent = "No games found. Try a different search or filter.";
@@ -404,6 +433,7 @@ function setupRankingSearch(list, games, status) {
     searchInput.addEventListener("input", updateResults);
     platformFilter.addEventListener("change", updateResults);
     genreFilter.addEventListener("change", updateResults);
+    sortSelect.addEventListener("change", updateResults);
     updateResults();
     form.hidden = false;
 }

@@ -5,7 +5,7 @@ Dieses Repository enthält mein Studienprojekt im IU-Kurs **Projekt: Web-Program
 ## Seiten
 
 - **Home:** Einführung und die drei bestplatzierten Spiele.
-- **Ranking:** Die vollständige Spieleliste mit Cover, Plattform, geschätzter Spielzeit, Bewertung und weiteren Angaben. Titelsuche sowie Plattform- und Genre-Filter lassen sich miteinander kombinieren.
+- **Ranking:** Die vollständige Spieleliste mit Cover, Plattform, geschätzter Spielzeit, Bewertung und weiteren Angaben. Titelsuche, Plattform- und Genre-Filter sowie verschiedene Sortierungen lassen sich miteinander kombinieren.
 - **Statistics:** Kennzahlen, Plattform- und Genreverteilungen sowie Ranglisten nach Spielzeit und Verkaufszahlen.
 - **About:** Hintergrund zum Projekt und meine subjektiven Bewertungskriterien.
 
@@ -20,12 +20,12 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `statistics.html` | Statistikseite |
 | `about.html` | Informationen zum Projekt |
 | `style.css` | Gemeinsame Gestaltung und responsive Anordnung |
-| `ranking.css` | Gestaltung der Suche und Filter auf der Ranking-Seite |
+| `ranking.css` | Gestaltung der Suche, Filter und Sortierung auf der Ranking-Seite |
 | `loader.js` | Gemeinsame HTML-Bestandteile laden |
 | `components/header.html` | Gemeinsamer Kopfbereich mit Logo und Navigation |
 | `components/footer.html` | Inhalt der gemeinsamen Fußzeile |
 | `navigation.js` | Aktuelle Seite markieren, mobiles Menü und Tastaturbedienung |
-| `script.js` | CSV einlesen, Spiele anzeigen und filtern sowie Statistiken berechnen |
+| `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
 | `data/games.csv` | Spieledaten und Cover-URLs |
 | `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo |
 
@@ -43,14 +43,18 @@ Die Spieleliste wird aus `data/games.csv` geladen. Die Datei verwendet Semikolon
 
 Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetragen. Sie werden nicht automatisch aktualisiert. Genres, die nur einmal vorkommen, werden im Diagramm unter **Other** zusammengefasst.
 
-## Suche und Filter
+## Suche, Filter und Sortierung
 
 Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Zusammengesetzte Genreangaben wie **Platform / Adventure** bleiben dabei eigene Einträge.
 
-Die ursprünglichen Rangnummern bleiben erhalten. Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **All genres** auswählen. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
+Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeordnet. Auf kleinen Bildschirmen stehen drei kompakte Symbole nebeneinander; die aktuelle Auswahl erscheint als Textzeile darunter. Ab 900 Pixeln sind die Auswahltexte direkt in den Feldern sichtbar und werden durch die Symbole ergänzt. Die nativen Auswahlfelder behalten ihre zugeordneten Beschriftungen und eine sichtbare Fokusmarkierung.
+
+Unter **Sort by** kann die Liste nach persönlichem Rang, Spielzeit, Erscheinungsjahr oder Titel sortiert werden, jeweils in beide Richtungen. Bei gleichen Werten entscheidet die ursprüngliche Rangfolge. Die angezeigten Rangnummern bezeichnen weiterhin meine persönliche Platzierung.
+
+Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **All genres** auswählen. **Rank: best first** stellt die persönliche Reihenfolge wieder her. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
 
 ## Projektstand
 
-Die Git-Tags `abgabe-1` und `abgabe-2` markieren die jeweiligen Zwischenstände. Phase 3 ist in Bearbeitung. Das CSS für Kopfbereich und Navigation ist verschachtelt organisiert. Kopfbereich und Fußzeile werden auf allen vier Seiten aus gemeinsamen Dateien geladen. Das mobile Menü wird nach dem Laden des Headers initialisiert; die aktuelle Seite wird automatisch markiert. Titelsuche sowie Plattform- und Genre-Filter sind umgesetzt. Als nächste Schritte sind weiteres CSS-Nesting und Sortierung vorgesehen.
+Die Git-Tags `abgabe-1` und `abgabe-2` markieren die jeweiligen Zwischenstände. Phase 3 ist in Bearbeitung. Das CSS für Kopfbereich und Navigation ist verschachtelt organisiert. Kopfbereich und Fußzeile werden auf allen vier Seiten aus gemeinsamen Dateien geladen. Das mobile Menü wird nach dem Laden des Headers initialisiert; die aktuelle Seite wird automatisch markiert. Titelsuche, Plattform- und Genre-Filter sowie Sortierung sind umgesetzt. Weiteres CSS-Nesting ist vorgesehen.
 
 Die vollständige Ranking-Liste wird bereits geladen. Zusätzliche Spielinformationen stehen direkt im Eintrag; **Load more** und **View Details** sind deshalb entfallen.
