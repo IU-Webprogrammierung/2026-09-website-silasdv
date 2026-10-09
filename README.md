@@ -54,6 +54,8 @@ Unter **Sort by** kann die Liste nach persönlichem Rang, Spielzeit, Erscheinung
 
 Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **All genres** auswählen. **Rank: best first** stellt die persönliche Reihenfolge wieder her. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
 
+Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
+
 Auf der Ranking-Seite erscheint nach dem Herunterscrollen ein schwebender **Back to top**-Button. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Bei aktivierter Einstellung für reduzierte Bewegung erfolgt der Sprung ohne Scrollanimation.
 
 ## Projektstand
