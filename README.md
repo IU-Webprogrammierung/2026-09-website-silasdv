@@ -25,6 +25,7 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `components/header.html` | Gemeinsamer Kopfbereich mit Logo und Navigation |
 | `components/footer.html` | Inhalt der gemeinsamen Fußzeile |
 | `navigation.js` | Aktuelle Seite markieren, mobiles Menü und Tastaturbedienung |
+| `back-to-top.js` | Schwebenden Zurück-nach-oben-Button auf der Ranking-Seite steuern |
 | `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
 | `data/games.csv` | Spieledaten und Cover-URLs |
 | `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo |
@@ -52,6 +53,8 @@ Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeord
 Unter **Sort by** kann die Liste nach persönlichem Rang, Spielzeit, Erscheinungsjahr oder Titel sortiert werden, jeweils in beide Richtungen. Bei gleichen Werten entscheidet die ursprüngliche Rangfolge. Die angezeigten Rangnummern bezeichnen weiterhin meine persönliche Platzierung.
 
 Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **All genres** auswählen. **Rank: best first** stellt die persönliche Reihenfolge wieder her. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
+
+Auf der Ranking-Seite erscheint nach dem Herunterscrollen ein schwebender **Back to top**-Button. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Bei aktivierter Einstellung für reduzierte Bewegung erfolgt der Sprung ohne Scrollanimation.
 
 ## Projektstand
 

@@ -9,6 +9,7 @@
     <script src="navigation.js" defer></script>
     <script src="loader.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="back-to-top.js" defer></script>
 </head>
 <body>
     <a href="#main-content">Skip to main content</a>
@@ -98,6 +99,15 @@
             <ol id="ranking-list"></ol>
         </section>
     </main>
+
+    <button type="button" id="back-to-top" aria-label="Back to top"
+            title="Back to top" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+            <path d="M12 19V5m-6 6 6-6 6 6"></path>
+        </svg>
+    </button>
 
     <footer hidden></footer>
 </body>
