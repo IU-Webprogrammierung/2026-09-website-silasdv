@@ -67,7 +67,9 @@ Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. E
 
 `theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten im Ranking sind im Dunkelmodus hell mit dunkler Schrift; im hellen Design bleiben sie dunkel mit heller Schrift.
 
-## Fußzeile und Social Media
+## Social Media und Fußzeile
+
+Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsamen Kopfbereich verlinkt. Ab 1024 Pixeln stehen die Symbole rechtsbündig oberhalb der Seitennavigation. Auf kleineren Bildschirmen erscheinen sie innerhalb des aufgeklappten Menüs. Bei geschlossenem Menü sind auch diese Links ausgeblendet und nicht mit der Tastatur erreichbar. Die Symbole verwenden dieselben Gestaltungsregeln wie in der Fußzeile.
 
 Die gemeinsame Fußzeile enthält links den Satz **Retired professional Teamfight Tactics player.** ohne Zeilenumbruch. Rechts stehen anklickbare Symbole für Twitch, Instagram, X/Twitter, Discord und YouTube. Auf schmalen Bildschirmen stehen die Symbole bei Bedarf in einer eigenen, weiterhin rechtsbündigen Zeile. Darunter befinden sich der Copyright-Hinweis und Links zu den vier Seiten.
 
