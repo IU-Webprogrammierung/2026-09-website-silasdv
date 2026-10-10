@@ -75,6 +75,6 @@ Die Symbole sind direkt als SVG im HTML enthalten und benötigen keinen externen
 
 ## Projektstand
 
-Die Git-Tags `abgabe-1` und `abgabe-2` markieren die jeweiligen Zwischenstände. Phase 3 ist in Bearbeitung. Das CSS für Kopfbereich und Navigation ist verschachtelt organisiert. Kopfbereich und Fußzeile werden auf allen vier Seiten aus gemeinsamen Dateien geladen. Das mobile Menü wird nach dem Laden des Headers initialisiert; die aktuelle Seite wird automatisch markiert. Titelsuche, Plattform- und Genre-Filter sowie Sortierung sind umgesetzt. Weiteres CSS-Nesting ist vorgesehen.
+Die Git-Tags `abgabe-1` und `abgabe-2` markieren die jeweiligen Zwischenstände. Phase 3 ist in Bearbeitung. Das CSS ist für alle vier Seiten nach Bereichen gegliedert und mit nativem CSS-Nesting organisiert. Unterelemente, Zustände und passende Regeln für unterschiedliche Bildschirmgrößen stehen zusammen beim jeweiligen Bereich. Kopfbereich und Fußzeile werden auf allen vier Seiten aus gemeinsamen Dateien geladen. Das mobile Menü wird nach dem Laden des Headers initialisiert; die aktuelle Seite wird automatisch markiert. Titelsuche, Plattform- und Genre-Filter sowie Sortierung sind umgesetzt.
 
 Die vollständige Ranking-Liste wird bereits geladen. Zusätzliche Spielinformationen stehen direkt im Eintrag; **Load more** und **View Details** sind deshalb entfallen.

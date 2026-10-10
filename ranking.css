@@ -157,12 +157,12 @@
         & > li {
             min-width: 0;
             padding: 10px;
-        }
 
-        & > li::before {
-            margin-bottom: 8px;
-            padding: 4px 8px;
-            font-size: 14px;
+            &::before {
+                margin-bottom: 8px;
+                padding: 4px 8px;
+                font-size: 14px;
+            }
         }
 
         & figure {
@@ -238,7 +238,6 @@
         outline-offset: 3px;
     }
 }
-
 
 /* Am Listenende soll der schwebende Button keine Footer-Links verdecken. */
 footer {
