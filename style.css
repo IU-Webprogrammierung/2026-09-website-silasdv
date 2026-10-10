@@ -1,46 +1,52 @@
-/* Gemeinsame Farben: Der Darkmode tauscht nur diese Werte aus. */
+/* Rot setzt Akzente. Im Darkmode ist der Rotton für dunkle Flächen heller. */
 :root {
     color-scheme: light;
+    --accent: #b42332;
+    --accent-hover: #901b27;
+    --accent-soft: #fae8eb;
     --page: #f5f5f5;
     --text: #222222;
     --muted: #555555;
     --surface: #ffffff;
     --panel: #e6e6e6;
-    --hover: #d4d4d4;
-    --control-active: #e5e5e5;
+    --hover: #f4dce0;
+    --control-active: var(--accent-soft);
     --border: #bbbbbb;
     --separator: #dddddd;
     --control-border: #777777;
-    --focus: #222222;
-    --button-bg: #222222;
+    --focus: var(--accent);
+    --button-bg: var(--accent);
     --button-text: #ffffff;
-    --button-hover: #444444;
-    --badge-bg: #222222;
+    --button-hover: var(--accent-hover);
+    --badge-bg: var(--accent);
     --badge-text: #ffffff;
-    --chart: #555555;
-    --link: #0000ee;
+    --chart: var(--accent);
+    --link: var(--accent);
     --logo-filter: none;
 
     &[data-theme="dark"] {
         color-scheme: dark;
+        --accent: #ff8490;
+        --accent-hover: #ffa2aa;
+        --accent-soft: #46262d;
         --page: #151719;
         --text: #f2f3f5;
         --muted: #c1c7d0;
         --surface: #22262b;
         --panel: #2b3036;
-        --hover: #3c434c;
-        --control-active: #3c434c;
+        --hover: #563039;
+        --control-active: var(--accent-soft);
         --border: #58616e;
         --separator: #454c56;
         --control-border: #a1abb7;
-        --focus: #f2f3f5;
-        --button-bg: #ededed;
+        --focus: var(--accent);
+        --button-bg: var(--accent);
         --button-text: #17191c;
-        --button-hover: #cfd4db;
-        --badge-bg: #090b0d;
-        --badge-text: #ffffff;
-        --chart: #bcc5d0;
-        --link: #9bc7ff;
+        --button-hover: var(--accent-hover);
+        --badge-bg: var(--accent);
+        --badge-text: #17191c;
+        --chart: var(--accent);
+        --link: var(--accent);
         --logo-filter: invert(1);
     }
 }
@@ -560,6 +566,7 @@ nav {
 .stat-value {
     display: block;
     margin-bottom: 8px;
+    color: var(--accent);
     font-size: 24px;
     font-weight: bold;
     line-height: 1.2;
@@ -734,7 +741,7 @@ footer {
         place-items: center;
         width: 44px;
         height: 44px;
-        color: var(--text);
+        color: var(--accent);
         background-color: var(--panel);
         border-radius: 6px;
         text-decoration: none;
