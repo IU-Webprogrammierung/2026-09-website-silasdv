@@ -24,6 +24,7 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `loader.js` | Gemeinsame HTML-Bestandteile laden |
 | `components/header.html` | Gemeinsamer Kopfbereich mit Logo und Navigation |
 | `components/footer.html` | Inhalt der gemeinsamen Fußzeile |
+| `theme.js` | Hell-/Dunkelmodus früh setzen, Auswahl merken und Schalter steuern |
 | `navigation.js` | Aktuelle Seite markieren, mobiles Menü und Tastaturbedienung |
 | `back-to-top.js` | Schwebenden Zurück-nach-oben-Button auf der Ranking-Seite steuern |
 | `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
@@ -57,6 +58,14 @@ Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **A
 Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
 
 Auf der Ranking-Seite erscheint nach dem Herunterscrollen ein schwebender **Back to top**-Button. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Bei aktivierter Einstellung für reduzierte Bewegung erfolgt der Sprung ohne Scrollanimation.
+
+## Hell- und Dunkelmodus
+
+Der Mond-Schalter in der gemeinsamen Navigation wechselt zwischen Hell- und Dunkelmodus. Auf kleinen Bildschirmen befindet er sich im aufgeklappten Menü. Die Beschriftung nennt jeweils das Ziel: **Dark mode** im hellen Design und **Light mode** im dunklen Design. Der zugängliche Name für Screenreader und der Tooltip passen sich ebenfalls an; der Schalter ist mit der Tastatur bedienbar.
+
+Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. Eine manuelle Auswahl wird im lokalen Browserspeicher gespeichert und gilt auf allen vier Seiten sowie nach einem Neuladen. Andere offene Tabs derselben Website übernehmen Änderungen ebenfalls. Wenn der Browser das Speichern blockiert, funktioniert der Schalter für die aktuelle Seite weiter, kann die Auswahl aber nicht dauerhaft behalten.
+
+`theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten im Ranking sind im Dunkelmodus hell mit dunkler Schrift; im hellen Design bleiben sie dunkel mit heller Schrift.
 
 ## Projektstand
 

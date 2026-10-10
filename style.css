@@ -1,3 +1,50 @@
+/* Gemeinsame Farben: Der Darkmode tauscht nur diese Werte aus. */
+:root {
+    color-scheme: light;
+    --page: #f5f5f5;
+    --text: #222222;
+    --muted: #555555;
+    --surface: #ffffff;
+    --panel: #e6e6e6;
+    --hover: #d4d4d4;
+    --control-active: #e5e5e5;
+    --border: #bbbbbb;
+    --separator: #dddddd;
+    --control-border: #777777;
+    --focus: #222222;
+    --button-bg: #222222;
+    --button-text: #ffffff;
+    --button-hover: #444444;
+    --badge-bg: #222222;
+    --badge-text: #ffffff;
+    --chart: #555555;
+    --link: #0000ee;
+    --logo-filter: none;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #151719;
+    --text: #f2f3f5;
+    --muted: #c1c7d0;
+    --surface: #22262b;
+    --panel: #2b3036;
+    --hover: #3c434c;
+    --control-active: #3c434c;
+    --border: #58616e;
+    --separator: #454c56;
+    --control-border: #a1abb7;
+    --focus: #f2f3f5;
+    --button-bg: #ededed;
+    --button-text: #17191c;
+    --button-hover: #cfd4db;
+    --badge-bg: #090b0d;
+    --badge-text: #ffffff;
+    --chart: #bcc5d0;
+    --link: #9bc7ff;
+    --logo-filter: invert(1);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,8 +54,12 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #222222;
-    background-color: #f5f5f5;
+    color: var(--text);
+    background-color: var(--page);
+}
+
+a {
+    color: var(--link);
 }
 
 body > a[href="#main-content"] {
@@ -17,15 +68,15 @@ body > a[href="#main-content"] {
     left: 20px;
     z-index: 1000;
     padding: 10px 16px;
-    color: #ffffff;
-    background-color: #222222;
+    color: var(--button-text);
+    background-color: var(--button-bg);
     border-radius: 4px;
     transform: translateY(-150%);
 }
 
 body > a[href="#main-content"]:focus {
     transform: translateY(20px);
-    outline: 2px solid #222222;
+    outline: 2px solid var(--focus);
     outline-offset: 3px;
 }
 
@@ -86,6 +137,7 @@ header {
     & img {
         width: 50px;
         flex-shrink: 0;
+        filter: var(--logo-filter);
     }
 
     & span {
@@ -115,23 +167,23 @@ nav {
     & a {
         display: block;
         padding: 10px 16px;
-        color: #222222;
-        background-color: #e6e6e6;
+        color: var(--text);
+        background-color: var(--panel);
         text-decoration: none;
         border-radius: 4px;
 
         &:hover {
-            background-color: #d4d4d4;
+            background-color: var(--hover);
         }
 
         &[aria-current="page"] {
-            color: #ffffff;
-            background-color: #222222;
+            color: var(--button-text);
+            background-color: var(--button-bg);
             font-weight: bold;
         }
 
         &:focus-visible {
-            outline: 2px solid #222222;
+            outline: 2px solid var(--focus);
             outline-offset: 3px;
         }
     }
@@ -149,31 +201,31 @@ nav {
 .menu-toggle {
     font: inherit;
     padding: 10px 16px;
-    color: #222222;
-    background-color: #e6e6e6;
-    border: 1px solid #222222;
+    color: var(--text);
+    background-color: var(--panel);
+    border: 1px solid var(--control-border);
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-        background-color: #d4d4d4;
+        background-color: var(--hover);
     }
 
     &[aria-expanded="true"] {
-        color: #ffffff;
-        background-color: #222222;
+        color: var(--button-text);
+        background-color: var(--button-bg);
         font-weight: bold;
     }
 
     &:focus-visible {
-        outline: 2px solid #222222;
+        outline: 2px solid var(--focus);
         outline-offset: 3px;
     }
 }
 
 .hero {
     padding: 40px 24px;
-    background-color: #e6e6e6;
+    background-color: var(--panel);
 }
 
 .hero h1 {
@@ -191,7 +243,7 @@ nav {
 
 .home-about {
     padding: 32px 24px;
-    background-color: #e6e6e6;
+    background-color: var(--panel);
 }
 
 .home-about h2 {
@@ -212,7 +264,7 @@ nav {
 
 .about-quote {
     padding: 32px 24px;
-    background-color: #e6e6e6;
+    background-color: var(--panel);
 }
 
 .about-quote blockquote {
@@ -233,19 +285,19 @@ nav {
 .button {
     display: inline-block;
     padding: 12px 20px;
-    color: #ffffff;
-    background-color: #222222;
+    color: var(--button-text);
+    background-color: var(--button-bg);
     font-weight: bold;
     text-decoration: none;
     border-radius: 4px;
 }
 
 .button:hover {
-    background-color: #444444;
+    background-color: var(--button-hover);
 }
 
 .button:focus-visible {
-    outline: 2px solid #222222;
+    outline: 2px solid var(--focus);
     outline-offset: 3px;
 }
 
@@ -265,8 +317,8 @@ nav {
     flex-direction: column;
     min-width: 0;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #bbbbbb;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 6px;
     overflow-wrap: anywhere;
 }
@@ -277,8 +329,8 @@ nav {
     top: 20px;
     left: 20px;
     padding: 6px 10px;
-    color: #ffffff;
-    background-color: #222222;
+    color: var(--badge-text);
+    background-color: var(--badge-bg);
     font-weight: bold;
 }
 
@@ -306,7 +358,7 @@ nav {
 
 #top-games p {
     margin: 6px 0;
-    color: #555555;
+    color: var(--muted);
 }
 
 #ranking-list {
@@ -322,8 +374,8 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #bbbbbb;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 6px;
     overflow-wrap: anywhere;
 }
@@ -334,8 +386,8 @@ nav {
     order: -2;
     margin: 0 0 12px;
     padding: 6px 10px;
-    color: #ffffff;
-    background-color: #222222;
+    color: var(--button-text);
+    background-color: var(--button-bg);
     font-weight: bold;
 }
 
@@ -359,14 +411,14 @@ nav {
 
 #ranking-list p {
     margin: 6px 0;
-    color: #555555;
+    color: var(--muted);
 }
 
 #ranking-list .game-review {
     margin-top: 16px;
     padding-top: 16px;
-    color: #222222;
-    border-top: 1px solid #dddddd;
+    color: var(--text);
+    border-top: 1px solid var(--separator);
 }
 
 .stats-overview {
@@ -378,7 +430,7 @@ nav {
 .stat-card {
     margin: 0;
     padding: 24px 12px;
-    background-color: #e6e6e6;
+    background-color: var(--panel);
     text-align: center;
     overflow-wrap: anywhere;
 }
@@ -400,7 +452,7 @@ nav {
 .chart-section {
     margin: 0;
     padding: 24px 20px;
-    background-color: #ffffff;
+    background-color: var(--surface);
     overflow-wrap: anywhere;
 }
 
@@ -427,7 +479,7 @@ nav {
 .chart-bar {
     display: block;
     height: 16px;
-    background-color: #555555;
+    background-color: var(--chart);
     border-radius: 2px;
 }
 
@@ -439,7 +491,7 @@ nav {
 
 .game-chart > li {
     padding: 16px 0;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--separator);
 }
 
 .game-chart > li:first-child {
@@ -464,7 +516,7 @@ nav {
 
 .chart-cover {
     font-size: 12px;
-    color: #555555;
+    color: var(--muted);
 }
 
 .chart-cover img {
@@ -486,7 +538,7 @@ nav {
 .game-chart .chart-value {
     margin: 0 0 8px;
     font-size: 14px;
-    color: #555555;
+    color: var(--muted);
 }
 
 @media (min-width: 768px) {
@@ -580,4 +632,57 @@ nav {
     .hero h1 {
         font-size: 64px;
     }
+}
+
+/* Der Darkmode-Schalter gehört auf jeder Seite zur gemeinsamen Navigation. */
+.theme-toggle {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 16px;
+    gap: 10px;
+    align-items: center;
+    font: inherit;
+    color: var(--text);
+    background-color: var(--panel);
+    border: 1px solid var(--control-border);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:not([hidden]) {
+        display: flex;
+    }
+
+    & svg {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        background-color: var(--hover);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+    }
+
+    @media (min-width: 1024px) {
+        width: 48px;
+        padding: 10px;
+        justify-content: center;
+
+        & span {
+            display: none;
+        }
+    }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    color: var(--button-text);
+    background-color: var(--button-bg);
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+    background-color: var(--button-hover);
 }

@@ -30,6 +30,7 @@ async function loadHeader() {
     const loaded = await loadComponent("header", "components/header.html");
     if (loaded) {
         initializeNavigation();
+        initializeThemeToggle();
     }
 }
 
