@@ -686,3 +686,105 @@ nav {
 :root[data-theme="dark"] .theme-toggle:hover {
     background-color: var(--button-hover);
 }
+
+
+/* Das Symbol zeigt wie die Beschriftung den nächsten Modus. */
+.theme-toggle .theme-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    & .theme-moon {
+        display: none;
+    }
+
+    & .theme-sun {
+        display: block;
+    }
+}
+
+/* Gemeinsame Fußzeile: Kurzprofil links und Social-Links rechts. */
+footer {
+    margin-top: 32px;
+    border-top: 1px solid var(--border);
+
+    & .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    & .footer-bio {
+        margin: 0;
+        font-size: clamp(12px, 3.5vw, 14px);
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    & .social-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+
+    & .social-link {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        color: var(--text);
+        background-color: var(--panel);
+        border-radius: 6px;
+        text-decoration: none;
+
+        & svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        &:hover {
+            background-color: var(--hover);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 3px;
+        }
+    }
+
+    & .footer-bottom {
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    & .footer-copyright {
+        margin: 0;
+    }
+
+    & .footer-links {
+        flex-basis: auto;
+        margin-left: auto;
+
+        & ul {
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 8px 16px;
+        }
+
+        & a {
+            padding: 4px 0;
+            color: var(--muted);
+            background: transparent;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

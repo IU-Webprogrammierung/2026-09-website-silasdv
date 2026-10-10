@@ -57,15 +57,21 @@ Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **A
 
 Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
 
-Auf der Ranking-Seite erscheint nach dem Herunterscrollen ein schwebender **Back to top**-Button. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Bei aktivierter Einstellung für reduzierte Bewegung erfolgt der Sprung ohne Scrollanimation.
+Auf der Ranking-Seite blendet sich nach dem Herunterscrollen ein schwebender **Back to top**-Button weich ein und beim Erreichen des oberen Seitenbereichs wieder aus. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Während er ausgeblendet wird oder unsichtbar ist, lässt er sich weder anklicken noch mit der Tastatur fokussieren. Bei aktivierter Einstellung für reduzierte Bewegung entfallen sowohl die Überblendung als auch die Scrollanimation.
 
 ## Hell- und Dunkelmodus
 
-Der Mond-Schalter in der gemeinsamen Navigation wechselt zwischen Hell- und Dunkelmodus. Auf kleinen Bildschirmen befindet er sich im aufgeklappten Menü. Die Beschriftung nennt jeweils das Ziel: **Dark mode** im hellen Design und **Light mode** im dunklen Design. Der zugängliche Name für Screenreader und der Tooltip passen sich ebenfalls an; der Schalter ist mit der Tastatur bedienbar.
+Der Schalter in der gemeinsamen Navigation wechselt zwischen Hell- und Dunkelmodus. Ein Mond steht für den Wechsel zum dunklen Design, eine Sonne für den Wechsel zum hellen Design. Auf kleinen Bildschirmen befindet er sich im aufgeklappten Menü. Die Beschriftung nennt jeweils das Ziel: **Dark mode** im hellen Design und **Light mode** im dunklen Design. Der zugängliche Name für Screenreader und der Tooltip passen sich ebenfalls an; der Schalter ist mit der Tastatur bedienbar.
 
 Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. Eine manuelle Auswahl wird im lokalen Browserspeicher gespeichert und gilt auf allen vier Seiten sowie nach einem Neuladen. Andere offene Tabs derselben Website übernehmen Änderungen ebenfalls. Wenn der Browser das Speichern blockiert, funktioniert der Schalter für die aktuelle Seite weiter, kann die Auswahl aber nicht dauerhaft behalten.
 
 `theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten im Ranking sind im Dunkelmodus hell mit dunkler Schrift; im hellen Design bleiben sie dunkel mit heller Schrift.
+
+## Fußzeile und Social Media
+
+Die gemeinsame Fußzeile enthält links den Satz **Retired professional Teamfight Tactics player.** ohne Zeilenumbruch. Rechts stehen anklickbare Symbole für Twitch, Instagram, X/Twitter, Discord und YouTube. Auf schmalen Bildschirmen stehen die Symbole bei Bedarf in einer eigenen, weiterhin rechtsbündigen Zeile. Darunter befinden sich der Copyright-Hinweis und Links zu den vier Seiten.
+
+Die Symbole sind direkt als SVG im HTML enthalten und benötigen keinen externen Icon-Dienst. Jeder Profillink hat eine lesbare Beschriftung für Screenreader und eine sichtbare Tastatur-Fokusmarkierung. Die Profiladressen richten sich nach meinen angegebenen Benutzernamen beziehungsweise meiner Discord-Benutzer-ID. Die Website bindet keine Social-Media-Feeds oder Tracking-Skripte ein.
 
 ## Projektstand
 

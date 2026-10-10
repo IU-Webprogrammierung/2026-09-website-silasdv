@@ -3,6 +3,8 @@ const backToTopButton = document.getElementById("back-to-top");
 const rankingMain = document.getElementById("main-content");
 
 if (backToTopButton && rankingMain) {
+    // Danach übernimmt CSS das Ein- und Ausblenden statt des hidden-Attributs.
+    backToTopButton.hidden = false;
     function updateBackToTop() {
         const nearTop = window.scrollY <= 600;
 
@@ -10,7 +12,8 @@ if (backToTopButton && rankingMain) {
         if (nearTop && document.activeElement === backToTopButton) {
             rankingMain.focus({ preventScroll: true });
         }
-        backToTopButton.hidden = nearTop;
+        backToTopButton.inert = nearTop;
+        backToTopButton.classList.toggle("is-visible", !nearTop);
     }
 
     backToTopButton.addEventListener("click", () => {
