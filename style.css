@@ -780,6 +780,38 @@ nav {
     min-width: 0;
 }
 
+/* About: persönliches Foto und Einführung. */
+.about-intro {
+    display: grid;
+    align-items: center;
+    gap: 24px;
+
+    & .about-photo {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 2px solid var(--accent);
+        border-radius: 6px;
+    }
+
+    & h2 {
+        margin: 0 0 16px;
+    }
+
+    & p {
+        margin: 0 0 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+    }
+}
+
 /* About: Zitat und Autor. */
 .about-quote {
     padding: 32px 24px;

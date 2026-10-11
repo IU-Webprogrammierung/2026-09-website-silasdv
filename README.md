@@ -30,6 +30,9 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
 | `data/games.csv` | Spieledaten und Cover-URLs |
 | `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo |
+| `data/picture.jpg` | Persönliches Foto für die About-Seite |
+
+Auf der About-Seite steht das Foto ab 768 Pixeln neben dem Einführungstext, auf kleineren Bildschirmen darüber. Das vollständige Bild bleibt ohne Beschnitt oder Verzerrung sichtbar. Ein Alternativtext beschreibt das Motiv; der rote Rahmen passt sich dem Hell- und Dunkelmodus an.
 
 ## Lokal öffnen
 
