@@ -11,7 +11,7 @@ Dieses Repository enthält mein Studienprojekt im IU-Kurs **Projekt: Web-Program
 
 ## Technik und Dateien
 
-Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und Zielbrowser ist **Mozilla Firefox**.
+Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und Zielbrowser ist **Mozilla Firefox**. Auf allen vier Seiten wird mein Affinity-Logo auch als Favicon im Browser-Tab eingebunden.
 
 | Datei | Aufgabe |
 | --- | --- |
@@ -29,7 +29,7 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `back-to-top.js` | Schwebenden Zurück-nach-oben-Button auf der Ranking-Seite steuern |
 | `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
 | `data/games.csv` | Spieledaten und Cover-URLs |
-| `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo |
+| `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo im Kopfbereich und als Tab-Symbol |
 | `data/picture.jpg` | Persönliches Foto für die About-Seite |
 
 Auf der About-Seite steht das Foto ab 768 Pixeln neben dem Einführungstext, auf kleineren Bildschirmen darüber. Das vollständige Bild bleibt ohne Beschnitt oder Verzerrung sichtbar. Ein Alternativtext beschreibt das Motiv; der rote Rahmen passt sich dem Hell- und Dunkelmodus an.
@@ -72,7 +72,7 @@ Der Schalter in der gemeinsamen Navigation wechselt zwischen Hell- und Dunkelmod
 
 Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. Eine manuelle Auswahl wird im lokalen Browserspeicher gespeichert und gilt auf allen vier Seiten sowie nach einem Neuladen. Andere offene Tabs derselben Website übernehmen Änderungen ebenfalls. Wenn der Browser das Speichern blockiert, funktioniert der Schalter für die aktuelle Seite weiter, kann die Auswahl aber nicht dauerhaft behalten.
 
-`theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten im Ranking sind im Dunkelmodus hell mit dunkler Schrift; im hellen Design bleiben sie dunkel mit heller Schrift.
+`theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten verwenden im hellen Design einen dunkelroten Hintergrund mit weißer Schrift und im Dunkelmodus einen hellroten Hintergrund mit dunkler Schrift.
 
 ## Social Media und Fußzeile
 
@@ -81,6 +81,12 @@ Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsame
 Die gemeinsame Fußzeile enthält links den Satz **Retired professional Teamfight Tactics player.** ohne Zeilenumbruch. Rechts stehen anklickbare Symbole für Twitch, Instagram, X/Twitter, Discord und YouTube. Auf schmalen Bildschirmen stehen die Symbole bei Bedarf in einer eigenen, weiterhin rechtsbündigen Zeile. Darunter befinden sich der Copyright-Hinweis und Links zu den vier Seiten.
 
 Die Symbole sind direkt als SVG im HTML enthalten und benötigen keinen externen Icon-Dienst. Jeder Profillink hat eine lesbare Beschriftung für Screenreader und eine sichtbare Tastatur-Fokusmarkierung. Die Profiladressen richten sich nach meinen angegebenen Benutzernamen beziehungsweise meiner Discord-Benutzer-ID. Die Website bindet keine Social-Media-Feeds oder Tracking-Skripte ein.
+
+## Qualitätsprüfung
+
+Am 11.10.2026 wurden alle vier Seiten lokal mit Lighthouse 13.5.0 in Chrome 154 geprüft, jeweils in der mobilen und der Desktop-Ansicht im hellen Design. Alle acht Messungen übertrafen das Tutor-Ziel von 90 Punkten für Accessibility und Best Practices. Einen dabei gemeldeten Fehler durch das fehlende Favicon habe ich mit meinem vorhandenen Logo behoben; die mobile Startseite erreichte im anschließenden Nachtest in beiden Kategorien 100 Punkte.
+
+Lighthouse ergänzt die Bedien- und Layoutprüfungen im Zielbrowser Firefox. Die automatisierten Ergebnisse sind kein vollständiger Nachweis der WCAG-Konformität.
 
 ## Projektstand
 
