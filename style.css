@@ -685,6 +685,36 @@ nav {
     margin-bottom: 6px;
 }
 
+/* Kategorien nutzen die volle Breite; die Plattform-Balken teilen sie auf. */
+.category-charts {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+#platform-list {
+    display: grid;
+    gap: 24px;
+
+    & > li {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    & .chart-label {
+        flex: 1;
+    }
+
+    @media (min-width: 600px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 .chart-bar {
     display: block;
     height: 16px;

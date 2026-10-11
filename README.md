@@ -47,6 +47,8 @@ Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetra
 
 Im Ranking und in der Genre-Statistik ergänzen passende Symbole die ausgeschriebenen Genres, zum Beispiel ein Auto für Racing und ein Fadenkreuz für Shooter. Zusammengesetzte Angaben erhalten ein Symbol pro Bestandteil. Die SVG-Symbole sind in `script.js` hinterlegt und benötigen keinen externen Icon-Dienst. Für neue, noch nicht zugeordnete Genres gibt es ein neutrales Ersatzsymbol. Screenreader lesen weiterhin die Namen; die dekorativen Symbole sind ausgeblendet.
 
+Die Plattform- und Genreverteilung werden als Balkendiagramme dargestellt. Die Genres behalten ihre Symbole, vollständigen Namen, Anzahlen und Prozentwerte. Die Plattform-Balken stehen auf kleinen Bildschirmen untereinander, ab 600 Pixeln in zwei und ab 1024 Pixeln in drei Spalten. Alle Plattform-Balken verwenden dieselbe Skala. Die Diagramme werden aus der Spieleliste berechnet und benötigen keine zusätzliche Bibliothek.
+
 ## Suche, Filter und Sortierung
 
 Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Zusammengesetzte Genreangaben wie **Platform / Adventure** bleiben dabei eigene Einträge.
