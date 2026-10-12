@@ -56,11 +56,11 @@ Die Plattform- und Genreverteilung werden als Balkendiagramme dargestellt. Die G
 
 Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Zusammengesetzte Genreangaben wie **Platform / Adventure** bleiben dabei eigene Einträge.
 
-Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeordnet. Auf kleinen Bildschirmen stehen drei kompakte Symbole nebeneinander; die aktuelle Auswahl erscheint als Textzeile darunter. Ab 900 Pixeln sind die Auswahltexte direkt in den Feldern sichtbar und werden durch die Symbole ergänzt. Die nativen Auswahlfelder behalten ihre zugeordneten Beschriftungen und eine sichtbare Fokusmarkierung.
+Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeordnet. Auf kleinen Bildschirmen stehen die drei Auswahl-Symbole und der Reset-Button nebeneinander; die aktuelle Auswahl erscheint als Textzeile darunter. Ab 900 Pixeln sind die Auswahltexte direkt in den Feldern sichtbar und werden durch die Symbole ergänzt. Die nativen Auswahlfelder behalten ihre zugeordneten Beschriftungen und eine sichtbare Fokusmarkierung.
 
 Unter **Sort by** kann die Liste nach persönlichem Rang, Spielzeit, Erscheinungsjahr oder Titel sortiert werden, jeweils in beide Richtungen. Bei gleichen Werten entscheidet die ursprüngliche Rangfolge. Die angezeigten Rangnummern bezeichnen weiterhin meine persönliche Platzierung.
 
-Für die vollständige Liste das Suchfeld leeren und **All platforms** sowie **All genres** auswählen. **Rank: best first** stellt die persönliche Reihenfolge wieder her. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
+Mit **Reset filters** werden die Suche geleert, **All platforms** und **All genres** gewählt und die Sortierung auf **Rank: best first** zurückgesetzt. Anschließend erscheint die vollständige Liste wieder in meiner persönlichen Reihenfolge; der Fokus springt zurück ins Suchfeld. Auf kleinen Bildschirmen zeigt der Button ein Zurücksetzen-Symbol, ab 900 Pixeln zusätzlich den Text **Reset filters**. Der Button ist mit der Tastatur bedienbar und auch für Screenreader beschriftet. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
 
 Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
 

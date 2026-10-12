@@ -45,6 +45,16 @@
         border: 1px solid var(--control-border);
         border-radius: 8px;
 
+        &.reset-filters {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+        }
+
         & label {
             display: grid;
             place-items: center;
@@ -117,12 +127,26 @@
 
         & .ranking-filters {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.15fr);
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.15fr) auto;
         }
 
         & .ranking-control {
             width: 100%;
             min-width: 0;
+
+            &.reset-filters {
+                width: auto;
+                padding: 0 12px;
+
+                & .control-label {
+                    position: static;
+                    width: auto;
+                    height: auto;
+                    margin: 0;
+                    overflow: visible;
+                    clip-path: none;
+                }
+            }
 
             & label {
                 width: 44px;

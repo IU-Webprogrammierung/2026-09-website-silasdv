@@ -499,6 +499,17 @@ function setupRankingSearch(list, games, status) {
     platformFilter.addEventListener("change", updateResults);
     genreFilter.addEventListener("change", updateResults);
     sortSelect.addEventListener("change", updateResults);
+
+    // Suche, Filter und Sortierung gemeinsam auf den Anfangszustand zurücksetzen.
+    const resetButton = document.getElementById("reset-filters");
+    if (resetButton) {
+        resetButton.addEventListener("click", () => {
+            form.reset();
+            updateResults();
+            searchInput.focus();
+        });
+    }
+
     updateResults();
     form.hidden = false;
 }
