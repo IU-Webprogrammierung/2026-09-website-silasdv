@@ -124,9 +124,100 @@ header {
         margin: 0;
     }
 
+    /* Auf dem Desktop hebt sich der Kopfbereich als eigene Leiste ab. */
     @media (min-width: 1024px) {
+        width: calc(100% - 40px);
+        max-width: 1160px;
+        margin: 24px auto 12px;
+        padding: 20px 24px;
         flex-wrap: nowrap;
         justify-content: space-between;
+        gap: 32px;
+        background-color: var(--surface);
+        border: 1px solid var(--separator);
+        border-top: 3px solid var(--accent);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px #00000012;
+
+        & > p {
+            align-self: stretch;
+            align-items: center;
+            padding-right: 24px;
+            border-right: 1px solid var(--separator);
+        }
+
+        & .site-name {
+            gap: 16px;
+            font-size: 22px;
+            line-height: 1.25;
+
+            & img {
+                width: 56px;
+            }
+
+            & span {
+                max-width: 19ch;
+            }
+        }
+
+        & #main-navigation {
+            flex-shrink: 0;
+
+            & > .social-links {
+                gap: 8px;
+                margin-bottom: 12px;
+
+                & .social-link {
+                    color: var(--muted);
+                    background-color: transparent;
+                    border-radius: 50%;
+
+                    &:hover {
+                        color: var(--accent);
+                        background-color: var(--accent-soft);
+                    }
+                }
+            }
+
+            & > .page-links {
+                align-items: center;
+                flex-wrap: nowrap;
+                gap: 4px;
+                padding: 6px;
+                background-color: var(--panel);
+                border: 1px solid var(--separator);
+                border-radius: 12px;
+
+                & a {
+                    background-color: transparent;
+                    border-radius: 8px;
+
+                    &:hover {
+                        background-color: var(--hover);
+                    }
+
+                    &[aria-current="page"] {
+                        color: var(--button-text);
+                        background-color: var(--button-bg);
+                    }
+                }
+            }
+
+            & .theme-toggle {
+                color: var(--text);
+                background-color: var(--surface);
+                border-color: transparent;
+                border-radius: 8px;
+
+                & svg {
+                    color: var(--accent);
+                }
+
+                &:hover {
+                    background-color: var(--hover);
+                }
+            }
+        }
     }
 }
 

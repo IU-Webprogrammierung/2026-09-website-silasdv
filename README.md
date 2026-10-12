@@ -76,7 +76,9 @@ Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. E
 
 ## Social Media und Fußzeile
 
-Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsamen Kopfbereich verlinkt. Ab 1024 Pixeln stehen die Symbole rechtsbündig oberhalb der Seitennavigation. Auf kleineren Bildschirmen erscheinen sie innerhalb des aufgeklappten Menüs. Bei geschlossenem Menü sind auch diese Links ausgeblendet und nicht mit der Tastatur erreichbar. Die Symbole verwenden dieselben Gestaltungsregeln wie in der Fußzeile.
+Ab 1024 Pixeln erscheint der Kopfbereich als abgesetzte Leiste mit eigener Hintergrundfläche, roter Oberkante, abgerundeten Ecken und einem dezenten Schatten. Logo und Seitenname stehen links; eine senkrechte Linie trennt sie vom rechten Navigationsbereich. Dort stehen die Social-Media-Links über den Seitenlinks. Die aktuelle Seite wird farbig hervorgehoben. Die Gestaltung verwendet die vorhandenen Farben des Hell- und Dunkelmodus; die mobile Menügestaltung bleibt erhalten.
+
+Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsamen Kopfbereich verlinkt. Ab 1024 Pixeln stehen die Symbole rechtsbündig oberhalb der Seitennavigation. Auf kleineren Bildschirmen erscheinen sie innerhalb des aufgeklappten Menüs. Bei geschlossenem Menü sind auch diese Links ausgeblendet und nicht mit der Tastatur erreichbar. Die Symbole teilen sich die Grundgestaltung mit der Fußzeile. Auf dem Desktop sind die Header-Symbole dezenter dargestellt und erhalten beim Darüberfahren einen roten Akzent.
 
 Die gemeinsame Fußzeile enthält links den Satz **Retired professional Teamfight Tactics player.** ohne Zeilenumbruch. Rechts stehen anklickbare Symbole für Twitch, Instagram, X/Twitter, Discord und YouTube. Auf schmalen Bildschirmen stehen die Symbole bei Bedarf in einer eigenen, weiterhin rechtsbündigen Zeile. Darunter befinden sich der Copyright-Hinweis und Links zu den vier Seiten.
 
