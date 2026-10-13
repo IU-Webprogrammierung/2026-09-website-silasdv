@@ -57,7 +57,9 @@ Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetra
 
 Im Ranking und in der Genre-Statistik ergänzen passende Symbole die ausgeschriebenen Genres, zum Beispiel ein Auto für Racing und ein Fadenkreuz für Shooter. Zusammengesetzte Angaben erhalten ein Symbol pro Bestandteil. Die SVG-Symbole sind in `script.js` hinterlegt und benötigen keinen externen Icon-Dienst. Für neue, noch nicht zugeordnete Genres gibt es ein neutrales Ersatzsymbol. Screenreader lesen weiterhin die Namen; die dekorativen Symbole sind ausgeblendet.
 
-Die Plattform- und Genreverteilung werden als Balkendiagramme dargestellt. Die Genres behalten ihre Symbole, vollständigen Namen, Anzahlen und Prozentwerte. Die Plattform-Balken stehen auf kleinen Bildschirmen untereinander, ab 600 Pixeln in zwei und ab 1024 Pixeln in drei Spalten. Alle Plattform-Balken verwenden dieselbe Skala. Die Diagramme werden aus der Spieleliste berechnet und benötigen keine zusätzliche Bibliothek.
+Die Plattform- und Genreverteilung werden als kompakte Balkendiagramme dargestellt. Ab 900 Pixeln stehen die beiden Diagramme nebeneinander, darunter untereinander. Kategorienamen stehen links, Zahlen rechts und jeweils ein sechs Pixel hoher Balken darunter. Die Genres behalten ihre Symbole, vollständigen Namen, Anzahlen und Prozentwerte. Die Einheit wird einmal oberhalb jeder Liste erklärt. Innerhalb jedes Diagramms verwenden alle Balken dieselbe Skala. Die Diagramme werden aus der Spieleliste berechnet und benötigen keine zusätzliche Bibliothek.
+
+**Top 5 Playtime** zeigt die fünf Spiele mit der höchsten geschätzten Spielzeit. Bei gleicher Spielzeit entscheidet der persönliche Rang aus der CSV-Datei. Dadurch stehen höchstens fünf Spiele in der Liste; alle anderen Spiele bleiben in der Sammlung und fließen weiterhin in die Kennzahlen und Verteilungen ein.
 
 ## Suche, Filter und Sortierung
 

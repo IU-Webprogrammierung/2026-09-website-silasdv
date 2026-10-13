@@ -822,48 +822,65 @@ nav {
     }
 }
 
-.chart-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    & li {
-        margin-bottom: 16px;
-    }
-}
-
-.chart-label {
-    display: block;
-    margin-bottom: 6px;
-}
-
-/* Kategorien nutzen die volle Breite; die Plattform-Balken teilen sie auf. */
+/* Plattformen und Genres als kompakte Listen mit schmalen Balken. */
 .category-charts {
     display: grid;
-    gap: 24px;
+    align-items: start;
+    gap: 16px;
     margin-bottom: 32px;
-}
 
-#platform-list {
-    display: grid;
-    gap: 24px;
+    & .chart-section {
+        min-width: 0;
+        padding: 16px;
 
-    & > li {
-        display: flex;
-        flex-direction: column;
+        & h2 {
+            margin-bottom: 4px;
+        }
+    }
+
+    & .chart-note {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    & .chart-list {
+        display: grid;
+        gap: 12px;
         margin: 0;
+        padding: 0;
+        list-style: none;
+
+        & > li {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: start;
+            gap: 6px 12px;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.4;
+        }
     }
 
     & .chart-label {
-        flex: 1;
+        min-width: 0;
     }
 
-    @media (min-width: 600px) {
+    & .category-value {
+        color: var(--muted);
+        font-size: 14px;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    & .chart-bar {
+        grid-column: 1 / -1;
+        height: 6px;
+    }
+
+    @media (min-width: 900px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 

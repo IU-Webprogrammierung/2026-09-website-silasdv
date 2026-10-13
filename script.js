@@ -218,19 +218,19 @@ function showCategoryChart(list, categories, totalGames, showPercentages) {
 
     for (const [name, count] of categories) {
         const item = document.createElement("li");
-        let text = name + ": " + count + (count === 1 ? " game" : " games");
+        const label = makeText("span", name);
+        label.className = "chart-label";
+        if (list.id === "genre-list") {
+            label.replaceChildren(makeGenreLabel(name));
+        }
 
+        let text = String(count);
         if (showPercentages) {
             const percentage = (count / totalGames * 100).toFixed(1);
             text += " (" + percentage + "%)";
         }
-
-        const label = makeText("span", text);
-        label.className = "chart-label";
-        if (list.id === "genre-list") {
-            label.replaceChildren(makeGenreLabel(name),
-                document.createTextNode(text.slice(name.length)));
-        }
+        const value = makeText("span", text);
+        value.className = "category-value";
 
         const bar = document.createElement("span");
         bar.className = "chart-bar";
@@ -238,8 +238,7 @@ function showCategoryChart(list, categories, totalGames, showPercentages) {
         bar.style.width = (count / largestCount * 100) + "%";
         bar.setAttribute("aria-hidden", "true");
 
-        item.appendChild(label);
-        item.appendChild(bar);
+        item.append(label, " ", value, bar);
         list.appendChild(item);
     }
 }
@@ -318,27 +317,23 @@ function showStatistics(games) {
     showCategoryChart(document.getElementById("platform-list"), platforms, games.length, false);
     showCategoryChart(document.getElementById("genre-list"), genres, games.length, true);
 
-    // Gleiche Spielzeiten teilen sich einen Rang, auch auf Platz 5.
-    const byPlaytime = [...games].sort((a, b) => b.playtime_hours - a.playtime_hours);
+    // Genau fünf Spiele; bei gleicher Spielzeit entscheidet der persönliche Rang.
+    const byPlaytime = [...games].sort((a, b) =>
+        b.playtime_hours - a.playtime_hours || a.rank - b.rank
+    ).slice(0, 5);
     const playtimeList = document.getElementById("playtime-list");
     playtimeList.replaceChildren();
-    let position = 1;
 
-    for (let i = 0; i < byPlaytime.length; i++) {
-        const game = byPlaytime[i];
-        if (i > 0 && game.playtime_hours !== byPlaytime[i - 1].playtime_hours) {
-            position = i + 1;
-        }
-        if (position > 5) break;
+    byPlaytime.forEach((game, index) => {
         const item = document.createElement("li");
         item.appendChild(makeText("h3", game.title));
         const valueLabel = makeText("p", "About " +
             game.playtime_hours.toLocaleString("en-US") + " hours");
         valueLabel.className = "chart-value";
         item.appendChild(valueLabel);
-        showGameChartRow(item, game, position, game.playtime_hours, byPlaytime[0].playtime_hours);
+        showGameChartRow(item, game, index + 1, game.playtime_hours, byPlaytime[0].playtime_hours);
         playtimeList.appendChild(item);
-    }
+    });
     showSalesChart(games);
     document.getElementById("playtime-chart").hidden = false;
     document.getElementById("statistics-data").hidden = false;
