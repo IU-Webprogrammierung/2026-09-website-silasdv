@@ -44,7 +44,7 @@ Ein direktes Öffnen der HTML-Datei per Doppelklick reicht für das Laden der CS
 
 ## Daten
 
-Die Spieleliste wird aus `data/games.csv` geladen. Die Datei verwendet Semikolons als Feldtrenner und Kommas als Dezimaltrennzeichen. Spielzeiten sind Schätzwerte; Bewertungen und Kommentare geben meine persönliche Einschätzung wieder. Die Kommentare stehen derzeit in `script.js`.
+Die Spieleliste wird aus `data/games.csv` geladen. Die Datei verwendet Semikolons als Feldtrenner und Kommas als Dezimaltrennzeichen. Spielzeiten sind Schätzwerte; Bewertungen und Kommentare geben meine persönliche Einschätzung wieder. Die Kommentare stehen in der Spalte `comment` derselben CSV-Datei. Ein leeres Feld bedeutet, dass bei diesem Spiel kein Kommentar angezeigt wird. Änderungen an den Texten benötigen keine Anpassung in JavaScript.
 
 Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetragen. Sie werden nicht automatisch aktualisiert. Genres, die nur einmal vorkommen, werden im Diagramm unter **Other** zusammengefasst.
 
