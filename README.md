@@ -76,6 +76,8 @@ Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. E
 
 ## Social Media und Fußzeile
 
+Die Navigationslinks und Menüschalter wechseln ihre Farben mit kurzen CSS-Übergängen. Beim Darüberfahren heben sich die Social-Media-Symbole leicht an; das Sonne-/Mond-Symbol dreht sich dezent. Beim Drücken werden diese Symbole kurz kleiner, während die anklickbaren Flächen unverändert bleiben. Tastaturfokus wird sofort durch eine Umrandung sichtbar. Die Systemeinstellung für reduzierte Bewegung schaltet diese Übergänge und Symbolbewegungen ab.
+
 Ab 1024 Pixeln erscheint der Kopfbereich als abgesetzte Leiste mit eigener Hintergrundfläche, roter Oberkante, abgerundeten Ecken und einem dezenten Schatten. Logo und Seitenname stehen links; eine senkrechte Linie trennt sie vom rechten Navigationsbereich. Dort stehen die Social-Media-Links über den Seitenlinks. Die aktuelle Seite wird farbig hervorgehoben. Die Gestaltung verwendet die vorhandenen Farben des Hell- und Dunkelmodus; die mobile Menügestaltung bleibt erhalten.
 
 Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsamen Kopfbereich verlinkt. Ab 1024 Pixeln stehen die Symbole rechtsbündig oberhalb der Seitennavigation. Auf kleineren Bildschirmen erscheinen sie innerhalb des aufgeklappten Menüs. Bei geschlossenem Menü sind auch diese Links ausgeblendet und nicht mit der Tastatur erreichbar. Die Symbole teilen sich die Grundgestaltung mit der Fußzeile. Auf dem Desktop sind die Header-Symbole dezenter dargestellt und erhalten beim Darüberfahren einen roten Akzent.

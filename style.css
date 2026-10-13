@@ -172,7 +172,8 @@ header {
                     background-color: transparent;
                     border-radius: 50%;
 
-                    &:hover {
+                    &:hover,
+                    &:focus-visible {
                         color: var(--accent);
                         background-color: var(--accent-soft);
                     }
@@ -192,7 +193,8 @@ header {
                     background-color: transparent;
                     border-radius: 8px;
 
-                    &:hover {
+                    &:hover,
+                    &:focus-visible {
                         background-color: var(--hover);
                     }
 
@@ -213,7 +215,8 @@ header {
                     color: var(--accent);
                 }
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     background-color: var(--hover);
                 }
             }
@@ -267,8 +270,10 @@ nav {
         background-color: var(--panel);
         text-decoration: none;
         border-radius: 4px;
+        transition: background-color 180ms ease, color 180ms ease;
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
             background-color: var(--hover);
         }
 
@@ -314,13 +319,27 @@ nav {
     background-color: var(--panel);
     border-radius: 6px;
     text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
 
     & svg {
         width: 22px;
         height: 22px;
+        transition: transform 180ms ease;
     }
 
-    &:hover {
+    /* Nur das Symbol bewegt sich, die anklickbare Fläche bleibt an ihrem Platz. */
+    @media (hover: hover) and (pointer: fine) {
+        &:hover svg {
+            transform: translateY(-2px);
+        }
+    }
+
+    &:active svg {
+        transform: scale(0.9);
+    }
+
+    &:hover,
+    &:focus-visible {
         background-color: var(--hover);
     }
 
@@ -352,8 +371,10 @@ nav {
     border: 1px solid var(--control-border);
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
         background-color: var(--hover);
     }
 
@@ -382,6 +403,7 @@ nav {
     border: 1px solid var(--control-border);
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 
     &:not([hidden]) {
         display: flex;
@@ -391,9 +413,21 @@ nav {
         width: 22px;
         height: 22px;
         flex-shrink: 0;
+        transition: transform 180ms ease;
     }
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover svg {
+            transform: rotate(-12deg);
+        }
+    }
+
+    &:active svg {
+        transform: scale(0.9);
+    }
+
+    &:hover,
+    &:focus-visible {
         background-color: var(--hover);
     }
 
@@ -428,8 +462,29 @@ nav {
             display: block;
         }
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
             background-color: var(--button-hover);
+        }
+    }
+}
+
+/* Die Systemeinstellung für reduzierte Bewegung gilt auch für die Navigation. */
+@media (prefers-reduced-motion: reduce) {
+    nav a,
+    .social-link,
+    .menu-toggle,
+    .theme-toggle {
+        transition: none;
+    }
+
+    .social-link,
+    .theme-toggle {
+        & svg,
+        &:hover svg,
+        &:active svg {
+            transition: none;
+            transform: none;
         }
     }
 }
