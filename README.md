@@ -64,6 +64,8 @@ Mit **Reset filters** werden die Suche geleert, **All platforms** und **All genr
 
 Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
 
+Mit **Compact** neben der Trefferzahl lässt sich eine platzsparende Ansicht einschalten. Auf kleinen Bildschirmen steht ein Eintrag pro Zeile, ab 768 Pixeln stehen zwei und ab 1200 Pixeln drei Einträge nebeneinander. Jeder Eintrag zeigt ein kleines Cover und weiterhin alle Spielinformationen einschließlich Kommentar. Ein erneuter Klick stellt die bisherige Kartenansicht wieder her. Suche, Filter und Sortierung bleiben beim Umschalten erhalten; **Reset filters** setzt nur die Auswahl zurück. Der Schalter ist mit der Tastatur bedienbar und meldet seinen Zustand an Screenreader. Nach einem Neuladen startet die Seite wieder in der bisherigen Kartenansicht.
+
 Auf der Ranking-Seite blendet sich nach dem Herunterscrollen ein schwebender **Back to top**-Button weich ein und beim Erreichen des oberen Seitenbereichs wieder aus. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Während er ausgeblendet wird oder unsichtbar ist, lässt er sich weder anklicken noch mit der Tastatur fokussieren. Bei aktivierter Einstellung für reduzierte Bewegung entfallen sowohl die Überblendung als auch die Scrollanimation.
 
 ## Hell- und Dunkelmodus

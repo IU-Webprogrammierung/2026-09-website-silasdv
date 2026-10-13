@@ -105,7 +105,18 @@
                 <p id="selection-summary" class="selection-summary"></p>
             </form>
 
-            <p id="data-status" role="status"></p>
+            <div class="ranking-display">
+                <p id="data-status" role="status"></p>
+                <button type="button" id="compact-view" aria-label="Compact view"
+                        aria-pressed="false" aria-controls="ranking-list" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round"
+                         aria-hidden="true" focusable="false">
+                        <path d="M3 5h2m4 0h12M3 12h2m4 0h12M3 19h2m4 0h12"></path>
+                    </svg>
+                    Compact
+                </button>
+            </div>
             <noscript><p>Please enable JavaScript to view the ranking.</p></noscript>
             <ol id="ranking-list"></ol>
         </section>

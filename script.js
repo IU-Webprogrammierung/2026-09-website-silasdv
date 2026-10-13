@@ -438,6 +438,16 @@ function setupRankingSearch(list, games, status) {
 
     updateResults();
     form.hidden = false;
+
+    // Nur die Darstellung wechseln. Die aktuelle Spieleauswahl bleibt bestehen.
+    const compactButton = document.getElementById("compact-view");
+    if (compactButton) {
+        compactButton.addEventListener("click", () => {
+            const compact = list.classList.toggle("is-compact");
+            compactButton.setAttribute("aria-pressed", String(compact));
+        });
+        compactButton.hidden = false;
+    }
 }
 
 async function loadGames() {
