@@ -19,6 +19,7 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `ranking.html` | Ranking-Seite |
 | `statistics.html` | Statistikseite |
 | `about.html` | Informationen zum Projekt |
+| `about-factors.js` | Standbilder und Animationen der Bewertungskriterien steuern |
 | `style.css` | Gemeinsame Gestaltung und responsive Anordnung |
 | `ranking.css` | Gestaltung der Suche, Filter und Sortierung auf der Ranking-Seite |
 | `loader.js` | Gemeinsame HTML-Bestandteile laden |
@@ -33,6 +34,12 @@ Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und
 | `data/picture.jpg` | Persönliches Foto für die About-Seite |
 
 Auf der About-Seite steht das Foto ab 768 Pixeln neben dem Einführungstext, auf kleineren Bildschirmen darüber. Das vollständige Bild bleibt ohne Beschnitt oder Verzerrung sichtbar. Ein Alternativtext beschreibt das Motiv; der rote Rahmen passt sich dem Hell- und Dunkelmodus an.
+
+Die sieben Bewertungskriterien auf der About-Seite werden mit lokalen GIFs aus `data/` als Bildboxen dargestellt. Unter 600 Pixeln stehen sie in zwei Spalten, ab 600 Pixeln in vier und ab 1024 Pixeln gemeinsam in einer Reihe. Die Bilder füllen quadratische Flächen und können dabei an den Rändern beschnitten werden.
+
+Standardmäßig zeigt jede Box ein unbewegtes Schwarz-Weiß-Bild, das JavaScript mit Canvas aus dem GIF erzeugt. Beim Darüberfahren mit der Maus erscheint die farbige Animation; beim Verlassen wieder das Standbild. Antippen, Enter oder die Leertaste schalten ebenfalls zwischen beiden Ansichten um. Es ist höchstens eine Animation sichtbar; beim Verlassen des Buttons mit der Tastatur oder beim Wechsel in einen anderen Browser-Tab erscheint wieder das Standbild. Der Wechsel zeigt oder verbirgt das GIF, ohne einen Neustart seiner Animation zu garantieren. Zusätzliche Bilddateien werden nicht benötigt.
+
+Die Kriterien bleiben als Liste mit ausgeschriebenen Namen lesbar. Die Buttons besitzen eine sichtbare Fokusmarkierung und melden ihren Zustand mit `aria-pressed`; die ergänzenden Bilder sind für Screenreader dekorativ. Erst nach dem Laden eines Bildes wird dessen Button bedienbar. Ohne JavaScript oder bei einem fehlenden GIF bleiben der Name und eine leere Bildfläche sichtbar.
 
 ## Lokal öffnen
 
