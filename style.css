@@ -128,27 +128,27 @@ header {
     @media (min-width: 1024px) {
         width: calc(100% - 40px);
         max-width: 1160px;
-        margin: 24px auto 12px;
-        padding: 20px 24px;
+        margin: 16px auto 10px;
+        padding: 8px 8px 8px 20px;
         flex-wrap: nowrap;
         justify-content: space-between;
-        gap: 32px;
+        gap: 8px;
         background-color: var(--surface);
         border: 1px solid var(--separator);
         border-top: 3px solid var(--accent);
-        border-radius: 16px;
+        border-radius: 12px;
         box-shadow: 0 8px 24px #00000012;
 
         & > p {
             align-self: stretch;
             align-items: center;
-            padding-right: 24px;
+            padding-right: 20px;
             border-right: 1px solid var(--separator);
         }
 
         & .site-name {
-            gap: 16px;
-            font-size: 22px;
+            gap: 12px;
+            font-size: 20px;
             line-height: 1.25;
 
             & img {
@@ -165,7 +165,7 @@ header {
 
             & > .social-links {
                 gap: 8px;
-                margin-bottom: 12px;
+                margin-bottom: 4px;
 
                 & .social-link {
                     color: var(--muted);
@@ -184,12 +184,16 @@ header {
                 align-items: center;
                 flex-wrap: nowrap;
                 gap: 4px;
-                padding: 6px;
+                padding: 4px;
                 background-color: var(--panel);
                 border: 1px solid var(--separator);
                 border-radius: 12px;
 
                 & a {
+                    display: flex;
+                    align-items: center;
+                    min-height: 44px;
+                    padding: 8px 12px;
                     background-color: transparent;
                     border-radius: 8px;
 
@@ -206,6 +210,8 @@ header {
             }
 
             & .theme-toggle {
+                width: 44px;
+                min-height: 44px;
                 color: var(--text);
                 background-color: var(--surface);
                 border-color: transparent;
