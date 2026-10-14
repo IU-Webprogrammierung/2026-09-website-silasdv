@@ -4,7 +4,7 @@ Dieses Repository enthält mein Studienprojekt im IU-Kurs **Projekt: Web-Program
 
 ## Seiten
 
-- **Home:** Einführung und die drei bestplatzierten Spiele.
+- **Home:** Kompakte Einführung und die drei bestplatzierten Spiele mit denselben Angaben wie im Ranking.
 - **Ranking:** Die vollständige Spieleliste mit Cover, Plattform, geschätzter Spielzeit, Bewertung und weiteren Angaben. Titelsuche, Plattform- und Genre-Filter sowie verschiedene Sortierungen lassen sich miteinander kombinieren.
 - **Statistics:** Kennzahlen, Plattform- und Genreverteilungen sowie Ranglisten nach Spielzeit und Verkaufszahlen.
 - **About:** Hintergrund zum Projekt und meine subjektiven Bewertungskriterien.
@@ -40,6 +40,12 @@ Die sieben Bewertungskriterien auf der About-Seite werden mit lokalen GIFs aus `
 Standardmäßig zeigt jede Box ein unbewegtes Schwarz-Weiß-Bild, das JavaScript mit Canvas aus dem GIF erzeugt. Beim Darüberfahren mit der Maus erscheint die farbige Animation; beim Verlassen wieder das Standbild. Antippen, Enter oder die Leertaste schalten ebenfalls zwischen beiden Ansichten um. Es ist höchstens eine Animation sichtbar; beim Verlassen des Buttons mit der Tastatur oder beim Wechsel in einen anderen Browser-Tab erscheint wieder das Standbild. Der Wechsel zeigt oder verbirgt das GIF, ohne einen Neustart seiner Animation zu garantieren. Zusätzliche Bilddateien werden nicht benötigt.
 
 Die Kriterien bleiben als Liste mit ausgeschriebenen Namen lesbar. Die Buttons besitzen eine sichtbare Fokusmarkierung und melden ihren Zustand mit `aria-pressed`; die ergänzenden Bilder sind für Screenreader dekorativ. Erst nach dem Laden eines Bildes wird dessen Button bedienbar. Ohne JavaScript oder bei einem fehlenden GIF bleiben der Name und eine leere Bildfläche sichtbar.
+
+Auf der Startseite stehen ab 768 Pixeln alle drei Top-Spiele nebeneinander. Innerhalb der Karten stehen der farbige Rangbalken und das Cover zentriert über den Spielangaben. Beide sind gleich breit: 80 Prozent der verfügbaren Kartenbreite, höchstens 210 Pixel. So wachsen die Cover auf Tablets mit den Karten und erscheinen auf Desktop größer. Ihr Seitenverhältnis bleibt erhalten; die Animationen werden weiterhin aus der CSV geladen. Bei niedrigen Fenstern lassen sich die vollständigen Karten durch Scrollen lesen.
+
+Unter 768 Pixeln bleibt die kompakte Ansicht mit einem 80 Pixel breiten Cover links und den Spielangaben rechts erhalten. Der Kommentar nutzt darunter die volle Breite. Auf kleinen Bildschirmen sind die Bilder weiterhin auf maximal 150 Pixel Höhe begrenzt. Der Einführungsbereich ist kompakt gestaltet, damit die Top 3 früh sichtbar sind.
+
+Alle drei Karten zeigen Titel, Cover, Plattform, geschätzte Spielzeit, Bewertung, Erscheinungsjahr, Genre mit Symbolen und den Kommentar, sofern einer hinterlegt ist. Sie verwenden dieselben Daten wie das Ranking. Die Auswahl folgt weiterhin den drei besten Rängen aus der CSV; weder Spiele noch Bilder sind fest vorgegeben.
 
 ## Lokal öffnen
 

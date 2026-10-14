@@ -457,7 +457,7 @@ async function loadGames() {
 
         const topGames = document.getElementById("top-games");
         const ranking = document.getElementById("ranking-list");
-        if (topGames) showGames(topGames, games.slice(0, 3), false);
+        if (topGames) showGames(topGames, games.slice(0, 3), true);
         if (ranking) setupRankingSearch(ranking, games, status);
         if (document.getElementById("statistics-data")) showStatistics(games);
     } catch (error) {
