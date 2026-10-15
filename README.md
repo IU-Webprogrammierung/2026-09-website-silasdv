@@ -61,7 +61,7 @@ Die Spieleliste wird aus `data/games.csv` geladen. Die Datei verwendet Semikolon
 
 Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetragen. Sie werden nicht automatisch aktualisiert. Genres, die nur einmal vorkommen, werden im Diagramm unter **Other** zusammengefasst.
 
-Im Ranking und in der Genre-Statistik ergänzen passende Symbole die ausgeschriebenen Genres, zum Beispiel ein Auto für Racing und ein Fadenkreuz für Shooter. Zusammengesetzte Angaben erhalten ein Symbol pro Bestandteil. Die SVG-Symbole sind in `script.js` hinterlegt und benötigen keinen externen Icon-Dienst. Für neue, noch nicht zugeordnete Genres gibt es ein neutrales Ersatzsymbol. Screenreader lesen weiterhin die Namen; die dekorativen Symbole sind ausgeblendet.
+Jedes Spiel erhält in der CSV genau ein Genre. Die Kategorien sind für meine Website festgelegt: Deckbuilder wie Slay the Spire stehen unter Roguelike, Getting Over It und Pogostuck unter Rage Game und Pinball Pulse unter Sports. Roguelike und Roguelite bleiben getrennte Kategorien. Auf Home, im Ranking und in der Genre-Statistik ergänzt jeweils ein Symbol den ausgeschriebenen Namen, zum Beispiel ein Auto für Racing oder ein Fadenkreuz für First-person shooter. Die SVG-Symbole sind in `script.js` hinterlegt und benötigen keinen externen Icon-Dienst. Für neue, noch nicht zugeordnete Genres gibt es ein neutrales Ersatzsymbol. Screenreader lesen weiterhin die Namen; die dekorativen Symbole sind ausgeblendet.
 
 Die Plattform- und Genreverteilung werden als kompakte Balkendiagramme dargestellt. Ab 900 Pixeln stehen die beiden Diagramme nebeneinander, darunter untereinander. Kategorienamen stehen links, Zahlen rechts und jeweils ein sechs Pixel hoher Balken darunter. Die Genres behalten ihre Symbole, vollständigen Namen, Anzahlen und Prozentwerte. Die Einheit wird einmal oberhalb jeder Liste erklärt. Innerhalb jedes Diagramms verwenden alle Balken dieselbe Skala. Die Diagramme werden aus der Spieleliste berechnet und benötigen keine zusätzliche Bibliothek.
 
@@ -69,7 +69,7 @@ Die Plattform- und Genreverteilung werden als kompakte Balkendiagramme dargestel
 
 ## Suche, Filter und Sortierung
 
-Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Zusammengesetzte Genreangaben wie **Platform / Adventure** bleiben dabei eigene Einträge.
+Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Änderungen am Genre in der CSV werden nach dem Neuladen auf Home, im Ranking, in den Filteroptionen und in der Statistik übernommen. Für dieselbe Kategorie verwende ich immer dieselbe Schreibweise.
 
 Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeordnet. Auf kleinen Bildschirmen stehen die drei Auswahl-Symbole und der Reset-Button nebeneinander; die aktuelle Auswahl erscheint als Textzeile darunter. Ab 900 Pixeln sind die Auswahltexte direkt in den Feldern sichtbar und werden durch die Symbole ergänzt. Die nativen Auswahlfelder behalten ihre zugeordneten Beschriftungen und eine sichtbare Fokusmarkierung.
 

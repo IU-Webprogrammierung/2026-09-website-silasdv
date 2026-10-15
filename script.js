@@ -80,62 +80,59 @@ function makeText(tag, text) {
     return element;
 }
 
-// Einfache SVG-Linien (KI-Generiert): Die Namen entsprechen den Genres aus meiner Spieleliste.
+// Einfache SVG-Linien (KI-Generiert): ein Symbol für jedes Genre meiner Spieleliste.
 const genreIcons = {
-    "adventure": "M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z M15 9l-2 4-4 2 2-4 4-2Z",
-    "card & board game": "M4 3h12v16H4Z M8 19v2h12V7h-4 M10 7l3 4-3 4-3-4 3-4Z",
-    "fighting": "M8 20v-4l-3-3V7a2 2 0 0 1 4 0V5a2 2 0 0 1 4 0v1a2 2 0 0 1 4 0v4l1-1a2 2 0 0 1 3 2l-3 5v4H8Z M8 16h10",
-    "hack and slash": "M4 20l4-4 M5 13l6 6 M8 16 19 5V3h-2L6 14",
+    "action-adventure": "M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z M15 9l-2 4-4 2 2-4 4-2Z",
+    "action rpg": "M4 20l4-4 M5 13l6 6 M8 16 19 5V3h-2L6 14",
+    "auto battler": "M5 3h3v4h3V3h3v4h3V3h2v7H5V3Z M7 10l1 8h8l1-8 M6 18h12v3H6Z",
+    "collectible card game": "M4 3h12v16H4Z M8 19v2h12V7h-4 M10 7l3 4-3 4-3-4 3-4Z",
+    "first-person shooter": "M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z M12 1v6 M12 17v6 M1 12h6 M17 12h6 M13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z",
+    "metroidvania": "M3 3h7v6H7v6h10V9h-3V3h7v18H3V3Z M7 21v-3 M17 21v-3",
     "moba": "M3 3h3l11 11 M3 3v3l11 11 M13 18l5-5 M16 16l5 5 M21 3h-3L7 14 M21 3v3L10 17 M6 13l5 5 M8 16l-5 5",
-    "music": "M9 17V5l11-2v12 M9 9l11-2 M9 17a3 2 0 1 1-6 0 3 2 0 0 1 6 0Z M20 15a3 2 0 1 1-6 0 3 2 0 0 1 6 0Z",
-    "strategy": "M5 3h3v4h3V3h3v4h3V3h2v7H5V3Z M7 10l1 8h8l1-8 M6 18h12v3H6Z",
-    "real time strategy (rts)": "M5 3h3v4h3V3h3v4h3V3h2v7H5V3Z M7 10l1 8h8l1-8 M6 18h12v3H6Z",
-    "pinball": "M5 2h14l2 19H3L5 2Z M9 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z M17 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z M6 16l4 2 M18 16l-4 2",
-    "platform": "M2 21h6v-4h6v-4h8 M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z M8 7v5l-3 3 M8 10l5-3 M8 12l4 3",
+    "platformer": "M2 21h6v-4h6v-4h8 M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z M8 7v5l-3 3 M8 10l5-3 M8 12l4 3",
     "puzzle": "M3 3h6a3 3 0 1 0 6 0h6v6a3 3 0 1 0 0 6v6h-6a3 3 0 1 0-6 0H3v-6a3 3 0 1 0 0-6V3Z",
     "racing": "M5 10l2-6h10l2 6 M4 10h16v8H4Z M4 14h3 M17 14h3 M6 18v3 M18 18v3 M4 10 2 8 M20 10l2-2",
-    "role-playing (rpg)": "M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4Z M12 6v12 M8 10h8",
-    "rpg": "M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4Z M12 6v12 M8 10h8",
-    "shooter": "M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z M12 1v6 M12 17v6 M1 12h6 M17 12h6 M13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z",
-    "sport": "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M3 12h18 M12 3v18 M6 5c6 3 6 11 0 14 M18 5c-6 3-6 11 0 14",
-    "tactical": "M4 4h5v5H4Z M15 15h5v5h-5Z M6 9v9h6 M12 18l-2-2 M12 18l-2 2 M15 4l5 5 M20 4l-5 5",
+    "rage game": "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M7 8l3 2 M17 8l-3 2 M8 16l2-2 2 2 2-2 2 2",
+    "real-time strategy": "M5 3h3v4h3V3h3v4h3V3h2v7H5V3Z M7 10l1 8h8l1-8 M6 18h12v3H6Z",
+    "rhythm game": "M9 17V5l11-2v12 M9 9l11-2 M9 17a3 2 0 1 1-6 0 3 2 0 0 1 6 0Z M20 15a3 2 0 1 1-6 0 3 2 0 0 1 6 0Z",
+    "roguelike": "M20 8a8 8 0 0 0-14-2L3 9 M3 4v5h5 M4 16a8 8 0 0 0 14 2l3-3 M16 15h5v5",
+    "roguelite": "M20 8a8 8 0 1 0 0 8 M20 3v5h-5 M12 8v8 M8 12h8",
+    "sports": "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M3 12h18 M12 3v18 M6 5c6 3 6 11 0 14 M18 5c-6 3-6 11 0 14",
+    "third-person shooter": "M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z M12 1v6 M12 17v6 M1 12h6 M17 12h6 M13 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z",
+    "turn-based rpg": "M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4Z M12 6v12 M8 10h8",
     "other": "M3 3h7v7H3Z M14 3h7v7h-7Z M3 14h7v7H3Z M14 14h7v7h-7Z"
 };
 
-// Bei kombinierten Genres bekommt jeder Bestandteil ein eigenes Symbol.
+// Jedes Spiel hat genau ein Genre mit ausgeschriebenem Namen und einem Symbol.
 function makeGenreLabel(genre) {
     const label = document.createElement("span");
     label.className = "genre-label";
-    const names = genre.split("/").map(name => name.trim());
+    const part = document.createElement("span");
+    part.className = "genre-tag";
+    const name = genre.trim();
+    const key = name.toLowerCase();
+    const shape = Object.hasOwn(genreIcons, key) ? genreIcons[key] : genreIcons.other;
 
-    names.forEach((name, index) => {
-        if (index > 0) label.appendChild(document.createTextNode(" / "));
-        const part = document.createElement("span");
-        part.className = "genre-tag";
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "genre-icon");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.8");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    // Der ausgeschriebene Name daneben erklärt das Symbol bereits.
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", shape);
+    svg.appendChild(path);
 
-        const key = name.toLowerCase();
-        const shape = Object.hasOwn(genreIcons, key) ? genreIcons[key] : genreIcons.other;
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("class", "genre-icon");
-        svg.setAttribute("viewBox", "0 0 24 24");
-        svg.setAttribute("fill", "none");
-        svg.setAttribute("stroke", "currentColor");
-        svg.setAttribute("stroke-width", "1.8");
-        svg.setAttribute("stroke-linecap", "round");
-        svg.setAttribute("stroke-linejoin", "round");
-        // Der ausgeschriebene Name daneben erklärt das Symbol bereits.
-        svg.setAttribute("aria-hidden", "true");
-        svg.setAttribute("focusable", "false");
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", shape);
-        svg.appendChild(path);
-
-        part.appendChild(svg);
-        const text = makeText("span", name);
-        text.className = "genre-name";
-        part.appendChild(text);
-        label.appendChild(part);
-    });
+    part.appendChild(svg);
+    const text = makeText("span", name);
+    text.className = "genre-name";
+    part.appendChild(text);
+    label.appendChild(part);
     return label;
 }
 
