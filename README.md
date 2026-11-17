@@ -1,116 +1,86 @@
 # SilasDV's Video Game Ranking
 
-Dieses Repository enthält mein Studienprojekt im IU-Kurs **Projekt: Web-Programmierung (DLBUXPWP01)**. Die englischsprachige Website zeigt mein persönliches Spiele-Ranking, Statistiken zu meiner Sammlung und Informationen zu meinen Bewertungskriterien.
+Mein Hochschulprojekt im IU-Kurs **Projekt: Web-Programmierung (DLBUXPWP01)** ist eine englischsprachige Website mit persönlicher Spiele-Rangliste, Statistiken und Hintergrundinformationen. Entwicklungs- und Zielbrowser ist **Mozilla Firefox**. Der Stand für Phase 3 enthält vier verlinkte Seiten und 71 Spiele. Die Spielezahl kann durch Änderungen an der CSV wachsen.
 
-## Seiten
+## Seiten und Funktionen
 
-- **Home:** Kompakte Einführung und die drei bestplatzierten Spiele mit denselben Angaben wie im Ranking.
-- **Ranking:** Die vollständige Spieleliste mit Cover, Plattform, geschätzter Spielzeit, Bewertung und weiteren Angaben. Titelsuche, Plattform- und Genre-Filter sowie verschiedene Sortierungen lassen sich miteinander kombinieren.
-- **Statistics:** Kennzahlen, Plattform- und Genreverteilungen sowie Ranglisten nach Spielzeit und Verkaufszahlen.
-- **About:** Hintergrund zum Projekt und meine subjektiven Bewertungskriterien.
-
-## Technik und Dateien
-
-Die Website verwendet HTML, CSS und JavaScript ohne Framework. Entwicklungs- und Zielbrowser ist **Mozilla Firefox**. Auf allen vier Seiten wird mein Affinity-Logo auch als Favicon im Browser-Tab eingebunden.
-
-| Datei | Aufgabe |
-| --- | --- |
-| `index.html` | Startseite |
-| `ranking.html` | Ranking-Seite |
-| `statistics.html` | Statistikseite |
-| `about.html` | Informationen zum Projekt |
-| `about-factors.js` | Standbilder und Animationen der Bewertungskriterien steuern |
-| `style.css` | Gemeinsame Gestaltung und responsive Anordnung |
-| `ranking.css` | Gestaltung der Suche, Filter und Sortierung auf der Ranking-Seite |
-| `loader.js` | Gemeinsame HTML-Bestandteile laden |
-| `components/header.html` | Gemeinsamer Kopfbereich mit Logo und Navigation |
-| `components/footer.html` | Inhalt der gemeinsamen Fußzeile |
-| `theme.js` | Hell-/Dunkelmodus früh setzen, Auswahl merken und Schalter steuern |
-| `navigation.js` | Aktuelle Seite markieren, mobiles Menü und Tastaturbedienung |
-| `back-to-top.js` | Schwebenden Zurück-nach-oben-Button auf der Ranking-Seite steuern |
-| `script.js` | CSV einlesen, Spiele anzeigen, filtern und sortieren sowie Statistiken berechnen |
-| `data/games.csv` | Spieledaten und Cover-URLs |
-| `data/SDVVGR.svg` | Eigenes, mit Affinity gestaltetes Logo im Kopfbereich und als Tab-Symbol |
-| `data/picture.jpg` | Persönliches Foto für die About-Seite |
-
-Auf der About-Seite steht das Foto ab 768 Pixeln neben dem Einführungstext, auf kleineren Bildschirmen darüber. Das vollständige Bild bleibt ohne Beschnitt oder Verzerrung sichtbar. Ein Alternativtext beschreibt das Motiv; der rote Rahmen passt sich dem Hell- und Dunkelmodus an.
-
-Die sieben Bewertungskriterien auf der About-Seite werden mit lokalen GIFs aus `data/` als Bildboxen dargestellt. Unter 600 Pixeln stehen sie in zwei Spalten, ab 600 Pixeln in vier und ab 1024 Pixeln gemeinsam in einer Reihe. Die Bilder füllen quadratische Flächen und können dabei an den Rändern beschnitten werden.
-
-Standardmäßig zeigt jede Box ein unbewegtes Schwarz-Weiß-Bild, das JavaScript mit Canvas aus dem GIF erzeugt. Beim Darüberfahren mit der Maus erscheint die farbige Animation; beim Verlassen wieder das Standbild. Antippen, Enter oder die Leertaste schalten ebenfalls zwischen beiden Ansichten um. Es ist höchstens eine Animation sichtbar; beim Verlassen des Buttons mit der Tastatur oder beim Wechsel in einen anderen Browser-Tab erscheint wieder das Standbild. Der Wechsel zeigt oder verbirgt das GIF, ohne einen Neustart seiner Animation zu garantieren. Zusätzliche Bilddateien werden nicht benötigt.
-
-Die Kriterien bleiben als Liste mit ausgeschriebenen Namen lesbar. Die Buttons besitzen eine sichtbare Fokusmarkierung und melden ihren Zustand mit `aria-pressed`; die ergänzenden Bilder sind für Screenreader dekorativ. Erst nach dem Laden eines Bildes wird dessen Button bedienbar. Ohne JavaScript oder bei einem fehlenden GIF bleiben der Name und eine leere Bildfläche sichtbar.
-
-Auf der Startseite stehen ab 768 Pixeln alle drei Top-Spiele nebeneinander. Innerhalb der Karten stehen der farbige Rangbalken und das Cover zentriert über den Spielangaben. Beide sind gleich breit: 80 Prozent der verfügbaren Kartenbreite, höchstens 210 Pixel. So wachsen die Cover auf Tablets mit den Karten und erscheinen auf Desktop größer. Ihr Seitenverhältnis bleibt erhalten; die Animationen werden weiterhin aus der CSV geladen. Bei niedrigen Fenstern lassen sich die vollständigen Karten durch Scrollen lesen.
-
-Unter 768 Pixeln bleibt die kompakte Ansicht mit einem 80 Pixel breiten Cover links und den Spielangaben rechts erhalten. Der Kommentar nutzt darunter die volle Breite. Auf kleinen Bildschirmen sind die Bilder weiterhin auf maximal 150 Pixel Höhe begrenzt. Der Einführungsbereich ist kompakt gestaltet, damit die Top 3 früh sichtbar sind.
-
-Alle drei Karten zeigen Titel, Cover, Plattform, geschätzte Spielzeit, Bewertung, Erscheinungsjahr, Genre mit Symbolen und den Kommentar, sofern einer hinterlegt ist. Sie verwenden dieselben Daten wie das Ranking. Die Auswahl folgt weiterhin den drei besten Rängen aus der CSV; weder Spiele noch Bilder sind fest vorgegeben.
+- **Home:** Einführung und die drei bestplatzierten Spiele. Titel, Cover, Plattform, Spielzeit, Bewertung, Erscheinungsjahr, Genre und Kommentar stammen aus derselben Datenquelle wie das Ranking.
+- **Ranking:** Vollständige Liste mit kombinierbarer Titelsuche, Plattform- und Genre-Filter, Reset-Button und Trefferanzeige. Sortierung nach persönlichem Rang, Spielzeit, Erscheinungsjahr oder Titel, jeweils in beide Richtungen. Bei Gleichständen entscheidet der persönliche Rang. Eine optionale Kompaktansicht und ein schwebender Back-to-top-Button erleichtern das Durchsehen.
+- **Statistics:** Spielezahl, geschätzte Gesamtspielzeit, durchschnittliche Bewertung und Plattformanzahl. Beschriftete Balkendiagramme zeigen Plattformen und Genres. Genres mit nur einem Spiel werden unter Other zusammengefasst. Top 5 Playtime und Top 5 Game Sales ergänzen die Auswertung mit Covern und proportionalen Balken.
+- **About:** Persönlicher Hintergrund, Foto, Zitat und sieben Bewertungskriterien als Bildboxen. Die Kriterien zeigen zunächst Schwarz-Weiß-Standbilder; Hover, Antippen, Enter oder Leertaste aktivieren die farbige Animation. Es ist höchstens eine Kriterienanimation gleichzeitig sichtbar.
+- **Gemeinsame Bedienung:** Mobiles Menü, Kennzeichnung der aktuellen Seite, Social-Media-Links und Hell-/Dunkelmodus. Die Farbauswahl wird in localStorage gespeichert und über Seitenwechsel und Neuladen hinweg übernommen. Ohne eigene Auswahl gilt die Systemeinstellung.
 
 ## Lokal öffnen
 
-1. Den Projektordner in VS Code öffnen.
-2. Die Website über einen lokalen Webserver starten, zum Beispiel mit **Open with Live Server** bei `index.html`.
+1. Den Projektordner in Visual Studio Code öffnen.
+2. `index.html` über einen lokalen Webserver starten, beispielsweise mit **Open with Live Server**.
 3. Die lokale Adresse in Firefox öffnen.
 
-Ein direktes Öffnen der HTML-Datei per Doppelklick reicht für das Laden der CSV-Datei nicht aus. JavaScript muss aktiviert sein, damit Spieledaten, die vollständige Navigation und die gemeinsame Fußzeile geladen werden. Bei deaktiviertem JavaScript oder einem Ladefehler des Headers bleibt ein Link zur Startseite verfügbar. Die extern verlinkten Cover benötigen eine Internetverbindung.
+Es gibt keinen Build-Schritt und keine zu installierenden Projektpakete. Ein Doppelklick auf eine HTML-Datei reicht nicht: CSV und gemeinsame HTML-Komponenten werden mit `fetch()` geladen und benötigen HTTP. JavaScript muss aktiviert sein. Bei einem Ladefehler bleibt ein Link zur Startseite erhalten; fehlende Spieldaten werden mit einer verständlichen Meldung angezeigt. Externe Cover benötigen eine Internetverbindung.
 
-## Daten
+## Technik und Dateistruktur
 
-Die Spieleliste wird aus `data/games.csv` geladen. Die Datei verwendet Semikolons als Feldtrenner und Kommas als Dezimaltrennzeichen. Spielzeiten sind Schätzwerte; Bewertungen und Kommentare geben meine persönliche Einschätzung wieder. Die Kommentare stehen in der Spalte `comment` derselben CSV-Datei. Ein leeres Feld bedeutet, dass bei diesem Spiel kein Kommentar angezeigt wird. Änderungen an den Texten benötigen keine Anpassung in JavaScript.
+- Semantisches HTML mit `header`, `nav`, `main`, `section`, `footer`, Überschriften, Listen, Formularfeldern und nativen Buttons.
+- Eigenes CSS ohne Framework: Flexbox, Grid, Media Queries, CSS-Variablen, Pseudoklassen und natives CSS-Nesting.
+- JavaScript ohne externe Laufzeitbibliotheken: CSV-Parser, DOM-Erzeugung, Suche, Filter, Sortierung, Statistikberechnung und Bedienzustände.
+- `loader.js` lädt `components/header.html` und `components/footer.html` auf allen Seiten. `navigation.js` initialisiert danach das Menü und die Markierung der aktuellen Seite. Dadurch werden wiederkehrende Inhalte nur an einer Stelle gepflegt.
+- `style.css` enthält die gemeinsame Gestaltung; `ranking.css` ergänzt die Ranking-Bedienelemente und Kompaktansicht. Verschachtelte Regeln halten Unterelemente, Zustände und responsive Anpassungen beim zugehörigen Bereich.
+- `script.js` verarbeitet `data/games.csv`. `theme.js` setzt den Farbmodus vor dem Laden der Stylesheets. `back-to-top.js` steuert den Zurück-nach-oben-Button; `about-factors.js` erzeugt mit Canvas Standbilder für die Kriterien-GIFs.
+- Die vier Einstiegsdateien sind `index.html`, `ranking.html`, `statistics.html` und `about.html`.
+- Das selbst in **Affinity** gestaltete Logo `data/SDVVGR.svg` dient auch als Favicon. `data/picture.jpg` ist das persönliche Foto; die Kriterien-GIFs liegen ebenfalls unter `data/`. Genre- und Bedienungssymbole sind als SVG direkt im Code enthalten.
 
-Die Verkaufszahlen wurden recherchiert und manuell in `statistics.html` eingetragen. Sie werden nicht automatisch aktualisiert. Genres, die nur einmal vorkommen, werden im Diagramm unter **Other** zusammengefasst.
+## Responsive Gestaltung
 
-Jedes Spiel erhält in der CSV genau ein Genre. Die Kategorien sind für meine Website festgelegt: Deckbuilder wie Slay the Spire stehen unter Roguelike, Getting Over It und Pogostuck unter Rage Game und Pinball Pulse unter Sports. Roguelike und Roguelite bleiben getrennte Kategorien. Auf Home, im Ranking und in der Genre-Statistik ergänzt jeweils ein Symbol den ausgeschriebenen Namen, zum Beispiel ein Auto für Racing oder ein Fadenkreuz für First-person shooter. Die SVG-Symbole sind in `script.js` hinterlegt und benötigen keinen externen Icon-Dienst. Für neue, noch nicht zugeordnete Genres gibt es ein neutrales Ersatzsymbol. Screenreader lesen weiterhin die Namen; die dekorativen Symbole sind ausgeblendet.
+Die Hauptbereiche sind auf 1200 Pixel begrenzt; auf kleineren Bildschirmen bleibt seitlicher Abstand erhalten. Die Regeln orientieren sich an den benötigten Inhaltsbreiten:
 
-Die Plattform- und Genreverteilung werden als kompakte Balkendiagramme dargestellt. Ab 900 Pixeln stehen die beiden Diagramme nebeneinander, darunter untereinander. Kategorienamen stehen links, Zahlen rechts und jeweils ein sechs Pixel hoher Balken darunter. Die Genres behalten ihre Symbole, vollständigen Namen, Anzahlen und Prozentwerte. Die Einheit wird einmal oberhalb jeder Liste erklärt. Innerhalb jedes Diagramms verwenden alle Balken dieselbe Skala. Die Diagramme werden aus der Spieleliste berechnet und benötigen keine zusätzliche Bibliothek.
+| Breite | Wesentliche Anpassung |
+| --- | --- |
+| Unter 600 px | Zwei Kriterienboxen pro Reihe auf About. |
+| Ab 600 px | Vier Kriterienboxen pro Reihe. |
+| Ab 768 px | Drei Home-Karten nebeneinander; breite Ranking-Einträge; About-Foto neben dem Text. Die Kompaktansicht zeigt zwei Spalten. |
+| Ab 900 px | Plattform- und Genre-Diagramme nebeneinander; beschriftete Filterfelder statt der mobilen Symbolleiste. |
+| Ab 1024 px | Vollständige Desktop-Navigation, vier Statistik-Kennzahlen nebeneinander und sieben Kriterienboxen in einer Reihe. |
+| Ab 1200 px | Drei Spalten in der kompakten Ranking-Ansicht. |
 
-**Top 5 Playtime** zeigt die fünf Spiele mit der höchsten geschätzten Spielzeit. Bei gleicher Spielzeit entscheidet der persönliche Rang aus der CSV-Datei. Dadurch stehen höchstens fünf Spiele in der Liste; alle anderen Spiele bleiben in der Sammlung und fließen weiterhin in die Kennzahlen und Verteilungen ein.
+Auf kleinen Bildschirmen zeigt Home schmale Cover neben den Angaben; das normale Ranking verwendet zwei Karten pro Reihe. Ab 768 Pixeln wachsen die Home-Cover mit den Karten bis zu einer Breite von 210 Pixeln. Cover und Rangbalken bleiben dabei gleich breit. Bilder behalten ihre Proportionen; längere Texte dürfen umbrechen.
 
-## Suche, Filter und Sortierung
+## Datenpflege
 
-Die Titelsuche aktualisiert die Liste während der Eingabe. Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende werden dabei ignoriert. Plattform und Genre können zusätzlich ausgewählt werden; ein Spiel muss alle gewählten Bedingungen erfüllen. Die Auswahlmöglichkeiten stammen aus der CSV-Datei. Änderungen am Genre in der CSV werden nach dem Neuladen auf Home, im Ranking, in den Filteroptionen und in der Statistik übernommen. Für dieselbe Kategorie verwende ich immer dieselbe Schreibweise.
+- `data/games.csv` verwendet UTF-8, Semikolons als Feldtrenner und Dezimalkommas. Kommentare stehen in der Spalte `comment`; ein leeres Feld blendet den Kommentar aus.
+- Neue Spiele benötigen einen eindeutigen positiven Rang und gültige Pflichtfelder. Nach Speichern und Neuladen aktualisieren sich Ranking, Top 3, Filteroptionen und berechnete Statistiken. Die ursprüngliche Excel-Datei wird nicht automatisch synchronisiert.
+- Jedes Spiel erhält genau ein projektbezogenes Genre. Einheitliche Schreibweisen verhindern doppelte Kategorien. Neue Genrebezeichnungen erhalten zunächst ein neutrales Symbol.
+- Spielzeiten sind persönliche Schätzungen; Bewertungen und Kommentare sind subjektiv. Der Rang wird ausdrücklich festgelegt und nicht aus der Bewertung berechnet.
+- Bei gleicher Spielzeit entscheidet der persönliche Rang über die Auswahl der genau fünf Top-Playtime-Spiele.
+- Verkaufszahlen sind recherchiert und manuell in `statistics.html` hinterlegt. Sie werden nicht aus der CSV berechnet und nicht automatisch aktualisiert.
 
-Die Auswahlleiste für Plattform, Genre und Sortierung ist rechtsbündig angeordnet. Auf kleinen Bildschirmen stehen die drei Auswahl-Symbole und der Reset-Button nebeneinander; die aktuelle Auswahl erscheint als Textzeile darunter. Ab 900 Pixeln sind die Auswahltexte direkt in den Feldern sichtbar und werden durch die Symbole ergänzt. Die nativen Auswahlfelder behalten ihre zugeordneten Beschriftungen und eine sichtbare Fokusmarkierung.
+## Gestaltung und Barrierefreiheit
 
-Unter **Sort by** kann die Liste nach persönlichem Rang, Spielzeit, Erscheinungsjahr oder Titel sortiert werden, jeweils in beide Richtungen. Bei gleichen Werten entscheidet die ursprüngliche Rangfolge. Die angezeigten Rangnummern bezeichnen weiterhin meine persönliche Platzierung.
+- Rote Akzentfarben und getrennte Farbvariablen für Hell- und Dunkelmodus sorgen für ein einheitliches Erscheinungsbild. Die Desktop-Navigation ist als eigene Leiste abgesetzt.
+- Kurze Übergänge unterstützen Navigation und Back-to-top. Die Systemeinstellung für reduzierte Bewegung unterbindet diese CSS-Übergänge und das weiche Zurückscrollen.
+- Ein bei Tastaturfokus sichtbarer Skip-Link führt zum Hauptinhalt. Fokusmarkierungen, zugeordnete Formularlabels und native Bedienelemente unterstützen die Tastaturbedienung.
+- Das mobile Menü meldet seinen Zustand mit `aria-expanded`; Escape schließt es und setzt den Fokus zurück. Zustände der Kompaktansicht und Kriterienanimationen werden mit `aria-pressed` beschrieben.
+- Cover und Foto besitzen Alternativtexte. Rein dekorative Bilder und SVG-Symbole werden für Screenreader ausgeblendet. Zahlen und Kategorien der Diagramme sind auch als Text vorhanden.
+- **Bekannte Einschränkung:** Die automatisch animierten Cover besitzen keinen Pause- oder Ausblendschalter. Für diese Animationen ist WCAG 2.2, Erfolgskriterium 2.2.2, daher nicht vollständig umgesetzt. Die steuerbaren Kriterienanimationen auf About sind davon getrennt. Eine vollständige WCAG-Konformität wird nicht behauptet.
 
-Mit **Reset filters** werden die Suche geleert, **All platforms** und **All genres** gewählt und die Sortierung auf **Rank: best first** zurückgesetzt. Anschließend erscheint die vollständige Liste wieder in meiner persönlichen Reihenfolge; der Fokus springt zurück ins Suchfeld. Auf kleinen Bildschirmen zeigt der Button ein Zurücksetzen-Symbol, ab 900 Pixeln zusätzlich den Text **Reset filters**. Der Button ist mit der Tastatur bedienbar und auch für Screenreader beschriftet. Eine Statusmeldung zeigt die Trefferzahl oder weist auf eine leere Ergebnisliste hin.
+## Prüfung des Abschlussstands
 
-Unter 768 Pixeln zeigt das Ranking zwei kompakte Spielkarten pro Reihe. Cover, Spielinformationen und Kommentare bleiben vollständig erhalten; längere Texte umbrechen innerhalb der Karten. Auf größeren Bildschirmen stehen Cover und Spielinformationen weiterhin nebeneinander in einer breiten Listenansicht.
+Am **17.11.2026** wurde der Website-Code des Commits `f8aa508` geprüft. Der anschließende Abschlusscommit aktualisiert nur diese README; die geprüften Website-Dateien bleiben unverändert.
 
-Mit **Compact** neben der Trefferzahl lässt sich eine platzsparende Ansicht einschalten. Auf kleinen Bildschirmen steht ein Eintrag pro Zeile, ab 768 Pixeln stehen zwei und ab 1200 Pixeln drei Einträge nebeneinander. Jeder Eintrag zeigt ein kleines Cover und weiterhin alle Spielinformationen einschließlich Kommentar. Ein erneuter Klick stellt die bisherige Kartenansicht wieder her. Suche, Filter und Sortierung bleiben beim Umschalten erhalten; **Reset filters** setzt nur die Auswahl zurück. Der Schalter ist mit der Tastatur bedienbar und meldet seinen Zustand an Screenreader. Nach einem Neuladen startet die Seite wieder in der bisherigen Kartenansicht.
+- **Firefox 153.0.3:** 149 automatisierte Funktions- und Layoutprüfungen bestanden. Geprüft wurden unter anderem alle 71 Genrezuordnungen, Filterergebnisse, acht Sortierrichtungen, Suche ohne Treffer, Reset, Kompaktansicht, Navigation, Tastaturaktionen, Farbspeicherung, Back-to-top, Kriterienanimationen und der Fehlerfall einer fehlenden CSV.
+- **Responsive:** Prüfbreiten 320, 360, 600, 768, 900, 1024, 1440 und 1920 CSS-Pixel; die geforderte Spanne 360 bis 1920 ist damit durch repräsentative Breiten abgedeckt. In den geprüften Ansichten gab es keinen horizontalen Seitenüberlauf. Die zwölf Abgabescreenshots wurden zusätzlich visuell kontrolliert.
+- **Lighthouse 13.5.0 in Chrome 157:** Alle vier Seiten wurden im hellen Design jeweils mobil und als Desktop geprüft. Alle acht Messungen erreichten **100 Accessibility und 100 Best Practices**. Firefox bleibt der Zielbrowser.
+- Die Prüfungen wurden mit KI-Unterstützung automatisiert durchgeführt. Ein vollständiger Screenreader- oder WCAG-Konformitätstest wurde nicht durchgeführt. Lighthouse ersetzt diesen nicht; die oben genannte Einschränkung der Coveranimationen bleibt bestehen.
 
-Auf der Ranking-Seite blendet sich nach dem Herunterscrollen ein schwebender **Back to top**-Button weich ein und beim Erreichen des oberen Seitenbereichs wieder aus. Er führt zum Seitenanfang zurück und setzt den Tastaturfokus auf den Hauptinhalt. Während er ausgeblendet wird oder unsichtbar ist, lässt er sich weder anklicken noch mit der Tastatur fokussieren. Bei aktivierter Einstellung für reduzierte Bewegung entfallen sowohl die Überblendung als auch die Scrollanimation.
+## Entwicklung und Erkenntnisse
 
-## Hell- und Dunkelmodus
+- Phase 1: Konzept, Wireframes und semantische HTML-Inhalte.
+- Phase 2: Responsive CSS-Gestaltung, eigenes Logo, CSV-Anbindung und Statistikdarstellung.
+- Phase 3: Gemeinsame Komponenten, CSS-Nesting, Suche und Filter, zusätzliche Sortierungen, Dunkelmodus, SVG-Symbole, Kompaktansicht, Animationen und abschließende Prüfungen.
+- Die vollständige Liste ersetzt die geplante Funktion Load more. Zusätzliche Spieldetails stehen direkt im Eintrag; View Details entfiel. Kompakte Balken blieben gegenüber dem zeitweise erprobten Kuchendiagramm die verständlichere Darstellung.
+- Die Umsetzung zeigt den Nutzen einer gemeinsamen Datenquelle: Änderungen müssen nicht auf mehreren Seiten nachgetragen werden. Gemeinsame HTML-Komponenten und CSS-Variablen reduzieren doppelte Pflege. Layouts wurden schrittweise an realen Bildschirmbreiten angepasst.
+- Die Entwicklung ist in kleinen, thematisch zusammengehörigen Git-Commits nachvollziehbar. Vor dem abschließenden README-Commit lagen 64 Commits vor, davon 30 seit Phase 2. Die Tags `abgabe-1`, `abgabe-2` und `abgabe-3` markieren die Abgabestände; der finale Stand liegt auf `main`.
+- KI wurde für Erklärungen, Codeerstellung, Überarbeitungen, SVG-Symbole, Textentwürfe und Prüfungen eingesetzt. Gestaltung, Inhalte und Funktionsumfang wurden im Verlauf ausgewählt, überprüft und angepasst.
 
-Der Schalter in der gemeinsamen Navigation wechselt zwischen Hell- und Dunkelmodus. Ein Mond steht für den Wechsel zum dunklen Design, eine Sonne für den Wechsel zum hellen Design. Auf kleinen Bildschirmen befindet er sich im aufgeklappten Menü. Die Beschriftung nennt jeweils das Ziel: **Dark mode** im hellen Design und **Light mode** im dunklen Design. Der zugängliche Name für Screenreader und der Tooltip passen sich ebenfalls an; der Schalter ist mit der Tastatur bedienbar.
+## Abgabe
 
-Ohne eigene Auswahl folgt die Website der Hell-/Dunkeleinstellung des Systems. Eine manuelle Auswahl wird im lokalen Browserspeicher gespeichert und gilt auf allen vier Seiten sowie nach einem Neuladen. Andere offene Tabs derselben Website übernehmen Änderungen ebenfalls. Wenn der Browser das Speichern blockiert, funktioniert der Schalter für die aktuelle Seite weiter, kann die Auswahl aber nicht dauerhaft behalten.
-
-`theme.js` wird auf allen Seiten vor den Stylesheets geladen. Die Farben stehen als CSS-Variablen in `style.css`; auch die Ranking-Bedienelemente verwenden diese Variablen. Das schwarze Logo wird im Dunkelmodus hell dargestellt. Die Farben der Spielcover bleiben unverändert. Die Rangnummernleisten verwenden im hellen Design einen dunkelroten Hintergrund mit weißer Schrift und im Dunkelmodus einen hellroten Hintergrund mit dunkler Schrift.
-
-## Social Media und Fußzeile
-
-Die Navigationslinks und Menüschalter wechseln ihre Farben mit kurzen CSS-Übergängen. Beim Darüberfahren heben sich die Social-Media-Symbole leicht an; das Sonne-/Mond-Symbol dreht sich dezent. Beim Drücken werden diese Symbole kurz kleiner, während die anklickbaren Flächen unverändert bleiben. Tastaturfokus wird sofort durch eine Umrandung sichtbar. Die Systemeinstellung für reduzierte Bewegung schaltet diese Übergänge und Symbolbewegungen ab.
-
-Ab 1024 Pixeln erscheint der Kopfbereich als abgesetzte Leiste mit eigener Hintergrundfläche, roter Oberkante, abgerundeten Ecken und einem dezenten Schatten. Logo und Seitenname stehen links; eine senkrechte Linie trennt sie vom rechten Navigationsbereich. Dort stehen die Social-Media-Links über den Seitenlinks. Die aktuelle Seite wird farbig hervorgehoben. Die Gestaltung verwendet die vorhandenen Farben des Hell- und Dunkelmodus; die mobile Menügestaltung bleibt erhalten.
-
-Twitch, Instagram, X/Twitter, Discord und YouTube sind zusätzlich im gemeinsamen Kopfbereich verlinkt. Ab 1024 Pixeln stehen die Symbole rechtsbündig oberhalb der Seitennavigation. Auf kleineren Bildschirmen erscheinen sie innerhalb des aufgeklappten Menüs. Bei geschlossenem Menü sind auch diese Links ausgeblendet und nicht mit der Tastatur erreichbar. Die Symbole teilen sich die Grundgestaltung mit der Fußzeile. Auf dem Desktop sind die Header-Symbole dezenter dargestellt und erhalten beim Darüberfahren einen roten Akzent.
-
-Die gemeinsame Fußzeile enthält links den Satz **Retired professional Teamfight Tactics player.** ohne Zeilenumbruch. Rechts stehen anklickbare Symbole für Twitch, Instagram, X/Twitter, Discord und YouTube. Auf schmalen Bildschirmen stehen die Symbole bei Bedarf in einer eigenen, weiterhin rechtsbündigen Zeile. Darunter befinden sich der Copyright-Hinweis und Links zu den vier Seiten.
-
-Die Symbole sind direkt als SVG im HTML enthalten und benötigen keinen externen Icon-Dienst. Jeder Profillink hat eine lesbare Beschriftung für Screenreader und eine sichtbare Tastatur-Fokusmarkierung. Die Profiladressen richten sich nach meinen angegebenen Benutzernamen beziehungsweise meiner Discord-Benutzer-ID. Die Website bindet keine Social-Media-Feeds oder Tracking-Skripte ein.
-
-## Qualitätsprüfung
-
-Am 11.10.2026 wurden alle vier Seiten lokal mit Lighthouse 13.5.0 in Chrome 154 geprüft, jeweils in der mobilen und der Desktop-Ansicht im hellen Design. Alle acht Messungen übertrafen das Tutor-Ziel von 90 Punkten für Accessibility und Best Practices. Einen dabei gemeldeten Fehler durch das fehlende Favicon habe ich mit meinem vorhandenen Logo behoben; die mobile Startseite erreichte im anschließenden Nachtest in beiden Kategorien 100 Punkte.
-
-Lighthouse ergänzt die Bedien- und Layoutprüfungen im Zielbrowser Firefox. Die automatisierten Ergebnisse sind kein vollständiger Nachweis der WCAG-Konformität.
-
-## Projektstand
-
-Die Git-Tags `abgabe-1` und `abgabe-2` markieren die jeweiligen Zwischenstände. Phase 3 ist in Bearbeitung. Das CSS ist für alle vier Seiten nach Bereichen gegliedert und mit nativem CSS-Nesting organisiert. Unterelemente, Zustände und passende Regeln für unterschiedliche Bildschirmgrößen stehen zusammen beim jeweiligen Bereich. Kopfbereich und Fußzeile werden auf allen vier Seiten aus gemeinsamen Dateien geladen. Das mobile Menü wird nach dem Laden des Headers initialisiert; die aktuelle Seite wird automatisch markiert. Titelsuche, Plattform- und Genre-Filter sowie Sortierung sind umgesetzt.
-
-Die vollständige Ranking-Liste wird bereits geladen. Zusätzliche Spielinformationen stehen direkt im Eintrag; **Load more** und **View Details** sind deshalb entfallen.
+Zum fertigen Repository gehören die README und die vollständige Git-Historie. Zusätzlich werden eine PDF mit zwölf beschrifteten Firefox-Screenshots und eine ZIP des lokalen Projektordners **inklusive `.git`** eingereicht. GitHubs automatisch erzeugte Download-ZIP ersetzt diese Projekt-ZIP nicht.
